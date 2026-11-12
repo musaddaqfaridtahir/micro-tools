@@ -10,6 +10,8 @@ import {
   Receipt,
   Moon,
   Landmark,
+  Percent,
+  Home,
 } from "lucide-react";
 import type { ToolIconName } from "@/lib/tools-registry";
 
@@ -40,6 +42,10 @@ export default function ToolIcon({ name, className = "h-5 w-5" }: ToolIconProps)
       return <Moon className={className} />;
     case "landmark":
       return <Landmark className={className} />;
+    case "percent":
+      return <Percent className={className} />;
+    case "home":
+      return <Home className={className} />;
     default:
       return <Calculator className={className} />;
   }

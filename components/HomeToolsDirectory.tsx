@@ -78,7 +78,7 @@ export default function HomeToolsDirectory() {
           <div className="flex items-center gap-2 self-start rounded-full border border-emerald-200 bg-emerald-50 px-3.5 py-1.5 text-xs font-bold text-emerald-700 md:self-auto">
             <span className="inline-block h-2.5 w-2.5 animate-pulse rounded-full bg-emerald-500" />
             <span>
-              {TOOLS_REGISTRY.length} Outils Actifs &bull; 4 Langues
+              {TOOLS_REGISTRY.length} Outils Gratuits &bull; 4 Langues
             </span>
           </div>
         </div>

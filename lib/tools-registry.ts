@@ -10,7 +10,9 @@ export type ToolIconName =
   | "divide"
   | "receipt"
   | "moon"
-  | "landmark";
+  | "landmark"
+  | "percent"
+  | "home";
 
 export type ToolAccent = "blue" | "emerald" | "amber" | "indigo" | "teal" | "violet";
 
@@ -65,10 +67,10 @@ export const LANGUAGE_HUBS: Record<LanguageCode, LanguageHubMeta> = {
     dir: "ltr",
     hubHeadline: "Calculateurs & Outils Financiers en Français",
     hubSubheadline:
-      "Suite complète d'outils gratuits conformes aux barèmes et taux français 2026 : calcul TVA HT/TTC, simulation salaire Brut en Net et frais kilométriques fiscaux.",
-    seoTitle: "Outils & Calculateurs Gratuits en Français (TVA, Salaire Brut/Net, Frais Km 2026)",
+      "Suite complète de 4 outils gratuits conformes aux barèmes et taux français 2026 : calcul TVA HT/TTC, simulateur salaire Brut en Net, frais kilométriques fiscaux et calcul de pourcentage & soldes.",
+    seoTitle: "Outils & Calculateurs Gratuits en Français (TVA, Salaire Brut/Net, Frais Km, Pourcentage 2026)",
     seoDescription:
-      "Accédez gratuitement à nos calculateurs en ligne pour la France : TVA (20%, 10%, 5,5%, 2,1%), conversion salaire brut en net 2026 et barème kilométrique fiscal.",
+      "Accédez gratuitement à nos 4 calculateurs en ligne pour la France : TVA (20%, 10%, 5,5%, 2,1%), salaire brut en net 2026, barème kilométrique et pourcentages/remises.",
     filterLabel: "Français (FR)",
     toolsCountSuffix: "outils gratuits disponibles",
   },
@@ -82,10 +84,10 @@ export const LANGUAGE_HUBS: Record<LanguageCode, LanguageHubMeta> = {
     dir: "ltr",
     hubHeadline: "Kostenlose Online-Rechner für Deutschland",
     hubSubheadline:
-      "Präzise, kostenlose Web-Rechner ohne Anmeldung und ohne Datenspeicherung: Stromverbrauch & Stromkosten exakt ermitteln sowie direkten und indirekten Dreisatz lösen.",
-    seoTitle: "Kostenlose Online-Rechner auf Deutsch (Stromverbrauch & Dreisatz 2026)",
+      "Präzise, kostenlose Web-Rechner ohne Anmeldung und ohne Datenspeicherung: Mehrwertsteuer (19 % & 7 %), Prozentrechner & Rabatte, Stromverbrauch (kWh) und Dreisatz.",
+    seoTitle: "Kostenlose Online-Rechner auf Deutsch (MwSt., Prozent, Stromverbrauch & Dreisatz 2026)",
     seoDescription:
-      "Präzise Online-Rechner für Deutschland: Stromverbrauch- und Stromkosten-Rechner (kWh/Jahr) sowie Dreisatz-Rechner (proportional & antiproportional) kostenlos nutzen.",
+      "4 präzise Online-Rechner für Deutschland: Mehrwertsteuer-Rechner (19% & 7%), Prozentrechner, Stromverbrauch- & Kostenrechner sowie Dreisatz-Rechner kostenlos nutzen.",
     filterLabel: "Deutsch (DE)",
     toolsCountSuffix: "kostenlose Rechner",
   },
@@ -99,10 +101,10 @@ export const LANGUAGE_HUBS: Record<LanguageCode, LanguageHubMeta> = {
     dir: "ltr",
     hubHeadline: "Calculadoras Online Gratuitas en Español",
     hubSubheadline:
-      "Herramientas rápidas en español para España y Latinoamérica: cálculo de IVA (21%, 10%, 4% y tasas personalizadas), días hábiles legales y regla de tres paso a paso.",
-    seoTitle: "Calculadoras Online Gratis en Español (IVA, Días Hábiles y Regla de Tres 2026)",
+      "4 herramientas rápidas en español para España y Latinoamérica: cálculo de IVA (21 %, 10 %, 4 % y Latam), cuota mensual de hipoteca y préstamos, días hábiles legales y regla de tres.",
+    seoTitle: "Calculadoras Online Gratis en Español (IVA, Hipoteca, Días Hábiles y Regla de Tres 2026)",
     seoDescription:
-      "Calculadoras precisas en español: Calculadora de IVA España y Latam, Calculadora de Días Hábiles laborales y Calculadora de Regla de Tres directa e inversa.",
+      "4 calculadoras precisas en español: Calculadora de IVA, Hipoteca y Préstamos (sistema francés), Días Hábiles laborales y Regla de Tres directa e inversa.",
     filterLabel: "Español (ES)",
     toolsCountSuffix: "calculadoras activas",
   },
@@ -116,10 +118,10 @@ export const LANGUAGE_HUBS: Record<LanguageCode, LanguageHubMeta> = {
     dir: "rtl",
     hubHeadline: "حاسبات وأدوات عربية مجانية فورية",
     hubSubheadline:
-      "مجموعة أدوات إلكترونية دقيقة باللغة العربية تعمل مباشرة من المتصفح دون تسجيل أو حفظ للبيانات: حاسبة ضريبة القيمة المضافة السعودية والإماراتية، وحاسبة العمر بالهجري والميلادي.",
-    seoTitle: "أدوات وحاسبات عربية مجانية أونلاين (ضريبة القيمة المضافة 15% والعمر الهجري 2026)",
+      "4 أدوات إلكترونية دقيقة باللغة العربية تعمل مباشرة من المتصفح دون تسجيل أو حفظ للبيانات: ضريبة القيمة المضافة 15%، مكافأة نهاية الخدمة السعودية، النسبة المئوية والخصم، والعمر الهجري.",
+    seoTitle: "أدوات وحاسبات عربية مجانية أونلاين (الضريبة 15%، نهاية الخدمة، النسبة المئوية والعمر الهجري 2026)",
     seoDescription:
-      "حاسبات مجانية باللغة العربية: حاسبة ضريبة القيمة المضافة في السعودية (15%) والإمارات (5%)، وحاسبة العمر الدقيقة بالتقويمين الهجري (أم القرى) والميلادي.",
+      "4 حاسبات مجانية باللغة العربية: ضريبة القيمة المضافة في السعودية والإمارات، مكافأة نهاية الخدمة وفق نظام العمل السعودي، النسبة المئوية والخصم، والعمر الهجري والميلادي.",
     filterLabel: "العربية (AR)",
     toolsCountSuffix: "أدوات مجانية متاحة",
   },
@@ -212,7 +214,94 @@ export const TOOLS_REGISTRY: ToolDefinition[] = [
       "Majoration +20 % véhicule électrique",
       "Comparatif frais réels vs 10 %",
     ],
-    relatedIds: ["calcul-brut-net", "calculateur-tva", "stromverbrauch-rechner"],
+    relatedIds: ["calcul-brut-net", "calculateur-tva", "calcul-pourcentage"],
+  },
+  {
+    id: "calcul-pourcentage",
+    slug: "/fr/calcul-pourcentage",
+    language: "fr",
+    locale: "fr_FR",
+    dir: "ltr",
+    title: "Calculateur de Pourcentage et Remise (Soldes)",
+    shortTitle: "Pourcentage & Soldes",
+    shortDescription:
+      "Calculez le pourcentage d'un nombre, un taux d'évolution (hausse ou baisse) et le prix final après remise (-10 %, -20 %, -30 %, -50 %) avec économie en €.",
+    nativeCtaText: "Ouvrir l'outil →",
+    nativeBadgeText: "Nouveau 2026",
+    category: "Mathématiques & Shopping",
+    keywords: [
+      "calculateur pourcentage",
+      "calcul remise soldes",
+      "calculer augmentation pourcentage",
+      "prix apres reduction",
+      "pourcentage d un nombre",
+    ],
+    icon: "percent",
+    accent: "violet",
+    highlights: [
+      "Pourcentage simple, évolution & soldes",
+      "Boutons rapides -10 %, -20 %, -30 %, -50 %",
+      "Montant économisé & copie en 1 clic",
+    ],
+    relatedIds: ["calculateur-tva", "calcul-brut-net", "prozentrechner"],
+  },
+  {
+    id: "mehrwertsteuer-rechner",
+    slug: "/de/mehrwertsteuer-rechner",
+    language: "de",
+    locale: "de_DE",
+    dir: "ltr",
+    title: "Mehrwertsteuer-Rechner (19 % & 7 % Deutschland)",
+    shortTitle: "Mehrwertsteuer-Rechner",
+    shortDescription:
+      "Berechnen Sie Nettobetrag, MwSt.-Betrag (19 % Regelsteuersatz, 7 % ermäßigt oder eigener Satz) und Bruttobetrag in Euro sekundenschnell vorwärts und rückwärts.",
+    nativeCtaText: "Rechner öffnen →",
+    nativeBadgeText: "Neu 2026",
+    category: "Finanzen & Steuern",
+    keywords: [
+      "mehrwertsteuer rechner",
+      "mwst berechnen 19 prozent",
+      "netto brutto rechner",
+      "umsatzsteuer 7 prozent",
+      "brutto zu netto",
+    ],
+    icon: "receipt",
+    accent: "blue",
+    highlights: [
+      "Netto zu Brutto & Brutto zu Netto",
+      "Schnellwahl 19 %, 7 % & eigener Satz",
+      "Sofortiges Euro-Ergebnis mit 1-Klick-Kopie",
+    ],
+    relatedIds: ["prozentrechner", "stromverbrauch-rechner", "calculateur-tva"],
+  },
+  {
+    id: "prozentrechner",
+    slug: "/de/prozentrechner",
+    language: "de",
+    locale: "de_DE",
+    dir: "ltr",
+    title: "Prozentrechner – Prozentwert, Prozentsatz & Rabatt",
+    shortTitle: "Prozentrechner",
+    shortDescription:
+      "Drei präzise Rechenmodi: Prozentwert berechnen (X % von Y), Prozentsatz ermitteln sowie Aufschlag (+%) oder Rabatt (-%) inklusive Ersparnis in Euro.",
+    nativeCtaText: "Rechner öffnen →",
+    nativeBadgeText: "Neu 2026",
+    category: "Mathematik & Alltag",
+    keywords: [
+      "prozentrechner",
+      "prozentwert berechnen",
+      "prozentsatz berechnen",
+      "rabatt rechner euro",
+      "prozentuale veraenderung",
+    ],
+    icon: "percent",
+    accent: "indigo",
+    highlights: [
+      "3 Modi: Prozentwert, Prozentsatz, Rabatt",
+      "Aufschlag (+%) & Ersparnis (-%) in €",
+      "Schritt-für-Schritt-Formel & Presets",
+    ],
+    relatedIds: ["mehrwertsteuer-rechner", "dreisatz-rechner", "calcul-pourcentage"],
   },
   {
     id: "stromverbrauch-rechner",
@@ -241,7 +330,7 @@ export const TOOLS_REGISTRY: ToolDefinition[] = [
       "Geräte-Presets (Kühlschrank, PC, TV)",
       "Tages-, Monats- & Jahresauswertung",
     ],
-    relatedIds: ["dreisatz-rechner", "calculateur-tva", "calcul-brut-net"],
+    relatedIds: ["mehrwertsteuer-rechner", "prozentrechner", "dreisatz-rechner"],
   },
   {
     id: "dreisatz-rechner",
@@ -254,7 +343,7 @@ export const TOOLS_REGISTRY: ToolDefinition[] = [
     shortDescription:
       "Lösen Sie den direkten (proportionalen) und indirekten (antiproportionalen) Dreisatz blitzschnell inklusive ausführlichem Schritt-für-Schritt-Lösungsweg.",
     nativeCtaText: "Rechner öffnen →",
-    nativeBadgeText: "Neu",
+    nativeBadgeText: "Aktiv",
     category: "Mathematik & Alltag",
     keywords: [
       "dreisatz rechner",
@@ -270,7 +359,7 @@ export const TOOLS_REGISTRY: ToolDefinition[] = [
       "Live Schritt-für-Schritt-Rechnung",
       "Praxis-Beispiele mit 1 Klick",
     ],
-    relatedIds: ["stromverbrauch-rechner", "calculadora-regla-de-tres", "calculateur-tva"],
+    relatedIds: ["prozentrechner", "mehrwertsteuer-rechner", "calculadora-regla-de-tres"],
   },
   {
     id: "calculadora-iva",
@@ -283,7 +372,7 @@ export const TOOLS_REGISTRY: ToolDefinition[] = [
     shortDescription:
       "Calcule la Base Imponible, la Cuota de IVA y el Total con IVA al instante. Compatible con los tipos españoles (21 %, 10 %, 4 %) y tasas de México, Colombia, Chile y Argentina.",
     nativeCtaText: "Abrir calculadora →",
-    nativeBadgeText: "Nueva 2026",
+    nativeBadgeText: "Activa",
     category: "Fiscalidad & Empresas",
     keywords: [
       "calculadora de iva",
@@ -299,7 +388,36 @@ export const TOOLS_REGISTRY: ToolDefinition[] = [
       "Añadir IVA o extraer Base Imponible",
       "Copia instantánea para facturación",
     ],
-    relatedIds: ["calculadora-regla-de-tres", "calculadora-dias-habiles", "calculateur-tva"],
+    relatedIds: ["calculadora-hipoteca", "calculadora-regla-de-tres", "calculadora-dias-habiles"],
+  },
+  {
+    id: "calculadora-hipoteca",
+    slug: "/es/calculadora-hipoteca",
+    language: "es",
+    locale: "es_ES",
+    dir: "ltr",
+    title: "Calculadora de Hipoteca y Préstamos (Cuota Mensual)",
+    shortTitle: "Hipoteca y Préstamos",
+    shortDescription:
+      "Calcule la cuota mensual exacta según el Sistema Francés, el total de intereses y el desglose completo del préstamo por capital, TIN y plazo en años o meses.",
+    nativeCtaText: "Abrir calculadora →",
+    nativeBadgeText: "Nueva 2026",
+    category: "Finanzas & Vivienda",
+    keywords: [
+      "calculadora hipoteca",
+      "simulador cuota mensual prestamo",
+      "sistema amortizacion frances",
+      "calcular intereses hipoteca",
+      "cuota prestamo personal",
+    ],
+    icon: "home",
+    accent: "emerald",
+    highlights: [
+      "Sistema Francés (cuota mensual constante)",
+      "Desglose Capital vs Total Intereses",
+      "Plazo en años o meses (€ / $)",
+    ],
+    relatedIds: ["calculadora-iva", "calculadora-dias-habiles", "calculadora-regla-de-tres"],
   },
   {
     id: "calculadora-dias-habiles",
@@ -384,7 +502,65 @@ export const TOOLS_REGISTRY: ToolDefinition[] = [
       "إضافة الضريبة أو استخراجها من الشامل",
       "واجهة عربية متكاملة RTL ونسخ بضغطة واحدة",
     ],
-    relatedIds: ["hijri-age-calculator", "calculateur-tva", "calculadora-iva"],
+    relatedIds: ["hijri-age-calculator", "end-of-service-calculator", "percentage-calculator"],
+  },
+  {
+    id: "end-of-service-calculator",
+    slug: "/ar/end-of-service-calculator",
+    language: "ar",
+    locale: "ar_SA",
+    dir: "rtl",
+    title: "حاسبة مكافأة نهاية الخدمة (نظام العمل السعودي)",
+    shortTitle: "مكافأة نهاية الخدمة",
+    shortDescription:
+      "احسب مكافأة نهاية الخدمة بدقة وفق المادتين 84 و85 من نظام العمل السعودي حسب نوع العقد وسبب انتهاء الخدمة والراتب الأخير ومدة العمل بالسنوات والأشهر.",
+    nativeCtaText: "← افتح الحاسبة",
+    nativeBadgeText: "جديد 2026",
+    category: "الموارد البشرية والعمل",
+    keywords: [
+      "حاسبة مكافأة نهاية الخدمة",
+      "حساب نهاية الخدمة نظام العمل السعودي",
+      "المادة 84 و 85 نظام العمل",
+      "مكافأة الاستقالة السعودية",
+      "تصفية مستحقات الموظف",
+    ],
+    icon: "briefcase",
+    accent: "amber",
+    highlights: [
+      "المادة 84 و85 من نظام العمل السعودي",
+      "نصف راتب لأول 5 سنوات وراتب كامل بعدها",
+      "نسب الاستقالة (الثلث، الثلثان، كاملة)",
+    ],
+    relatedIds: ["vat-calculator-saudi", "percentage-calculator", "hijri-age-calculator"],
+  },
+  {
+    id: "percentage-calculator",
+    slug: "/ar/percentage-calculator",
+    language: "ar",
+    locale: "ar_SA",
+    dir: "rtl",
+    title: "حاسبة النسبة المئوية والخصم",
+    shortTitle: "حاسبة النسبة المئوية",
+    shortDescription:
+      "أداة عربية شاملة لحساب النسبة المئوية من مبلغ، وحساب سعر المنتج بعد الخصم ومبلغ التوفير في التسوق، بالإضافة إلى نسبة الزيادة أو النقصان بين قيمتين.",
+    nativeCtaText: "← افتح الحاسبة",
+    nativeBadgeText: "جديد 2026",
+    category: "الرياضيات والتسوق",
+    keywords: [
+      "حاسبة النسبة المئوية",
+      "حساب الخصم والتوفير",
+      "كم نسبة مبلغ من مبلغ",
+      "حساب نسبة الزيادة والنقصان",
+      "حاسبة العروض والتخفيضات",
+    ],
+    icon: "percent",
+    accent: "violet",
+    highlights: [
+      "3 أوضاع: نسبة من مبلغ، خصم، تغيّر",
+      "حساب التوفير والخصومات الفورية",
+      "واجهة عربية RTL ونسخ بنقرة واحدة",
+    ],
+    relatedIds: ["vat-calculator-saudi", "end-of-service-calculator", "hijri-age-calculator"],
   },
   {
     id: "hijri-age-calculator",
@@ -412,7 +588,7 @@ export const TOOLS_REGISTRY: ToolDefinition[] = [
       "تحويل فوري حسب تقويم أم القرى",
       "إجمالي الأيام والأسابيع والعد التنازلي",
     ],
-    relatedIds: ["vat-calculator-saudi", "calculadora-dias-habiles", "calcul-brut-net"],
+    relatedIds: ["end-of-service-calculator", "vat-calculator-saudi", "percentage-calculator"],
   },
 ];
 
