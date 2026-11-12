@@ -12,12 +12,22 @@ import {
   Info,
 } from "lucide-react";
 import VatCalculator from "./VatCalculator";
-import AdBanner from "@/components/AdBanner";
+import AdSlot from "@/components/AdSlot";
+import SeoSchema from "@/components/SeoSchema";
+import FaqAccordion from "@/components/FaqAccordion";
+import RelatedTools from "@/components/RelatedTools";
+import { getToolById } from "@/lib/tools-registry";
+
+const TOOL = getToolById("calculateur-tva")!;
 
 export const metadata: Metadata = {
   title: "Calculateur de TVA en Ligne – Calcul HT en TTC et Inversement (Gratuit)",
   description:
     "Calculez facilement la TVA (20%, 10%, 5.5%, 2.1%) avec notre calculateur de TVA gratuit. Convertissez un montant HT en TTC ou TTC en HT instantanément.",
+  robots: {
+    index: true,
+    follow: true,
+  },
   alternates: {
     canonical: "/fr/calculateur-tva",
   },
@@ -59,48 +69,22 @@ const FAQ_DATA = [
     answer:
       "L'État français module les taux de TVA selon la nature essentielle ou économique des biens et services. Les produits de première nécessité (alimentation de base, livres, abonnements d'énergie) bénéficient du taux réduit à 5,5 %, la restauration et les rénovations ont un taux intermédiaire à 10 %, les médicaments remboursables et la presse ont un taux particulier à 2,1 %, tandis que la majorité des biens et services relèvent du taux normal à 20 %.",
   },
+  {
+    question: "Comment récupérer la TVA déductible pour une entreprise en 2026 ?",
+    answer:
+      "Toute entreprise assujettie à la TVA (régime réel normal ou simplifié) peut déduire la TVA payée sur ses achats professionnels (TVA déductible) de la TVA facturée à ses clients (TVA collectée). Lors de la déclaration CA3 ou CA12, la différence constitue la TVA nette à décaisser ou un crédit de TVA remboursable par l'État.",
+  },
 ];
 
 export default function VatCalculatorPage() {
-  // Structured Data (JSON-LD) for SEO Rich Snippets
-  const jsonLdFaq = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: FAQ_DATA.map((item) => ({
-      "@type": "Question",
-      name: item.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: item.answer,
-      },
-    })),
-  };
-
-  const jsonLdWebApp = {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    name: "Calculateur de TVA en Ligne",
-    applicationCategory: "FinanceApplication",
-    operatingSystem: "All",
-    offers: {
-      "@type": "Offer",
-      price: "0",
-      priceCurrency: "EUR",
-    },
-    description:
-      "Outil gratuit de calcul de la taxe sur la valeur ajoutée (TVA) en France : conversion HT en TTC et TTC en HT aux taux de 20%, 10%, 5.5% et 2.1%.",
-  };
-
   return (
     <div className="py-8 sm:py-12" lang="fr">
-      {/* Schema.org JSON-LD Script Tags */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdFaq) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdWebApp) }}
+      <SeoSchema
+        tool={TOOL}
+        faqs={FAQ_DATA}
+        pageTitle="Calculateur de TVA en Ligne – Calcul HT en TTC"
+        pageDescription="Outil gratuit de calcul de la taxe sur la valeur ajoutée (TVA) en France : conversion HT en TTC et TTC en HT aux taux officiels 2026."
+        priceCurrency="EUR"
       />
 
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
@@ -110,8 +94,8 @@ export default function VatCalculatorPage() {
             Accueil
           </Link>
           <ChevronRight className="h-3 w-3" />
-          <Link href="/#tools" className="hover:text-neutral-900 transition">
-            Outils Fiscaux
+          <Link href="/fr" className="hover:text-neutral-900 transition">
+            Outils Français (FR)
           </Link>
           <ChevronRight className="h-3 w-3" />
           <span className="font-semibold text-neutral-900" aria-current="page">
@@ -123,7 +107,7 @@ export default function VatCalculatorPage() {
         <header className="mb-6 text-center">
           <div className="inline-flex items-center gap-1.5 rounded-full border border-blue-200 bg-blue-50 px-3.5 py-1 text-xs font-semibold text-blue-700 shadow-2xs mb-3">
             <Zap className="h-3.5 w-3.5" />
-            <span>Mis à jour pour la fiscalité française 2024 - 2026</span>
+            <span>Mis à jour pour la fiscalité française 2026</span>
           </div>
 
           <h1 className="text-3xl font-black tracking-tight text-neutral-900 sm:text-4xl md:text-5xl">
@@ -135,9 +119,8 @@ export default function VatCalculatorPage() {
           </p>
         </header>
 
-        {/* 1. TOP AD BANNER PLACEHOLDER (Above Tool) */}
         <div className="mb-8">
-          <AdBanner position="top" adSlot="banner-top-calculateur-tva" />
+          <AdSlot position="top" adSlot="banner-top-calculateur-tva" />
         </div>
 
         {/* 2. THE VAT CALCULATOR (Client Component) */}
@@ -145,9 +128,8 @@ export default function VatCalculatorPage() {
           <VatCalculator />
         </section>
 
-        {/* 3. IN-CONTENT AD BANNER PLACEHOLDER (Below Tool) */}
         <div className="my-10">
-          <AdBanner position="in-content" adSlot="content-banner-calculateur-tva" />
+          <AdSlot position="in-content" adSlot="content-banner-calculateur-tva" />
         </div>
 
         {/* 4. HIGH-QUALITY NATIVE FRENCH SEO CONTENT */}
@@ -334,6 +316,34 @@ export default function VatCalculatorPage() {
             </div>
           </section>
 
+          {/* Section 3B: Deux Exemples Pratiques Réels */}
+          <section className="rounded-3xl border border-neutral-200 bg-white p-6 sm:p-10 shadow-xs">
+            <h2 className="text-xl font-bold tracking-tight text-neutral-900 sm:text-2xl m-0">
+              Exemples concrets de calcul HT / TTC en 2026
+            </h2>
+            <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="rounded-2xl border border-blue-200/80 bg-blue-50/40 p-5">
+                <h3 className="text-sm font-bold text-blue-900 m-0">
+                  Exemple 1 : Facturation d&apos;une prestation de conseil (TVA 20 %)
+                </h3>
+                <p className="mt-2 text-xs sm:text-sm text-neutral-700 leading-relaxed">
+                  Un consultant freelance facture une mission à <strong>1 500,00 € HT</strong> au taux normal de <strong>20 %</strong>.
+                  La TVA collectée s&apos;élève à <code>1 500 × 0,20 = 300,00 €</code>. Le montant total à régler par le client est de{" "}
+                  <strong>1 800,00 € TTC</strong>.
+                </p>
+              </div>
+              <div className="rounded-2xl border border-emerald-200/80 bg-emerald-50/40 p-5">
+                <h3 className="text-sm font-bold text-emerald-900 m-0">
+                  Exemple 2 : Retrouver le HT d&apos;une note de restaurant (TVA 10 %)
+                </h3>
+                <p className="mt-2 text-xs sm:text-sm text-neutral-700 leading-relaxed">
+                  Un ticket de déjeuner d&apos;affaires affiche <strong>88,00 € TTC</strong> avec un taux intermédiaire à <strong>10 %</strong>.
+                  Pour la comptabilité : <code>88,00 / 1,10 = 80,00 € HT</code>, soit <strong>8,00 € de TVA déductible</strong>.
+                </p>
+              </div>
+            </div>
+          </section>
+
           {/* Section 4: Foire Aux Questions (FAQ) */}
           <section className="rounded-3xl border border-neutral-200 bg-white p-6 sm:p-10 shadow-xs">
             <div className="flex items-center gap-2.5 text-blue-600 mb-6">
@@ -343,18 +353,7 @@ export default function VatCalculatorPage() {
               </h2>
             </div>
 
-            <div className="divide-y divide-neutral-200">
-              {FAQ_DATA.map((faq, index) => (
-                <div key={index} className="py-5">
-                  <h3 className="text-base font-bold text-neutral-900 m-0">
-                    {faq.question}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-neutral-600 m-0">
-                    {faq.answer}
-                  </p>
-                </div>
-              ))}
-            </div>
+            <FaqAccordion faqs={FAQ_DATA} dir="ltr" accent="blue" />
           </section>
         </article>
 
@@ -369,6 +368,8 @@ export default function VatCalculatorPage() {
             Aucun montant n&apos;est enregistré sur un serveur distant.
           </p>
         </aside>
+
+        <RelatedTools currentToolId="calculateur-tva" language="fr" />
       </div>
     </div>
   );

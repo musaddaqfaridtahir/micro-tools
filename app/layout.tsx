@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { SITE_URL, SITE_NAME } from "@/lib/site-config";
 import "./globals.css";
 
 export const viewport: Viewport = {
@@ -11,13 +12,13 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://microtools.example.com"),
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: "MicroTools – Outils & Rechner Online (Gratuit & Kostenlos)",
-    template: "%s | MicroTools",
+    default: `${SITE_NAME} – Outils & Calculateurs Multilingues en Ligne (FR, DE, ES, AR)`,
+    template: `%s | ${SITE_NAME}`,
   },
   description:
-    "Kostenlose und schnelle Online-Rechner & micro-outils (TVA France, Stromverbrauch Deutschland) mit sofortiger Berechnung und ohne Registrierung.",
+    "Calculateurs et utilitaires web gratuits, rapides et sans inscription en français, allemand, espagnol et arabe (TVA, Salaire Brut/Net, Dreisatz, Stromverbrauch, IVA, Hijri).",
   robots: {
     index: true,
     follow: true,

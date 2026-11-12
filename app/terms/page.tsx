@@ -1,7 +1,7 @@
 import React from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ChevronRight, FileText, AlertTriangle, ShieldCheck, Scale } from "lucide-react";
+import { ChevronRight, FileText, AlertTriangle, Scale } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Terms and Conditions of Use – MicroTools",

@@ -16,18 +16,35 @@ import {
   CalendarDays,
 } from "lucide-react";
 
+const BIRTH_PRESETS = [
+  { label: "مواليد 1985-03-10", value: "1985-03-10" },
+  { label: "مواليد 1995-07-20", value: "1995-07-20" },
+  { label: "مواليد 2000-01-01", value: "2000-01-01" },
+  { label: "مواليد 2005-09-15", value: "2005-09-15" },
+];
+
+const emptySubscribe = () => () => {};
+
+function useClientTodayString() {
+  return React.useSyncExternalStore(
+    emptySubscribe,
+    () => {
+      const t = new Date();
+      return `${t.getFullYear()}-${String(t.getMonth() + 1).padStart(2, "0")}-${String(t.getDate()).padStart(2, "0")}`;
+    },
+    () => "2026-11-12"
+  );
+}
+
 export default function HijriAgeCalculator() {
   const dateInputId = useId();
 
   // Default birth date: 1998-05-15
   const [birthDateStr, setBirthDateStr] = useState<string>("1998-05-15");
   const [copied, setCopied] = useState<boolean>(false);
-  // Stable reference for SSR/prerender, updated on client mount
-  const [now, setNow] = useState<Date>(() => new Date(2026, 9, 26));
-
-  React.useEffect(() => {
-    setNow(new Date());
-  }, []);
+  const todayIso = useClientTodayString();
+  const [ny, nm, nd] = todayIso.split("-").map(Number);
+  const now = new Date(ny, nm - 1, nd);
 
   // Calculations
   let isValid = false;
@@ -173,11 +190,30 @@ export default function HijriAgeCalculator() {
           <input
             id={dateInputId}
             type="date"
-            max={new Date().toISOString().split("T")[0]}
+            max={now.toISOString().split("T")[0]}
             value={birthDateStr}
             onChange={(e) => setBirthDateStr(e.target.value)}
             className="block w-full rounded-2xl border border-neutral-300 bg-neutral-50/50 py-3.5 px-4 text-lg font-bold text-neutral-900 text-center focus:border-emerald-600 focus:bg-white focus:outline-none focus:ring-4 focus:ring-emerald-500/10 transition"
           />
+        </div>
+        <div className="mt-3 flex flex-wrap items-center justify-center gap-2">
+          <span className="text-[11px] font-semibold text-neutral-500">
+            أمثلة سريعة:
+          </span>
+          {BIRTH_PRESETS.map((preset) => (
+            <button
+              key={preset.value}
+              type="button"
+              onClick={() => setBirthDateStr(preset.value)}
+              className={`rounded-lg border px-2.5 py-1 text-xs font-medium transition cursor-pointer ${
+                birthDateStr === preset.value
+                  ? "border-emerald-600 bg-emerald-600 text-white"
+                  : "border-emerald-200 bg-emerald-50/70 text-emerald-800 hover:bg-emerald-100"
+              }`}
+            >
+              {preset.label}
+            </button>
+          ))}
         </div>
         <p className="text-[11px] text-neutral-500 text-center mt-2 flex items-center justify-center gap-1">
           <Info className="h-3 w-3 text-neutral-400" />

@@ -13,12 +13,22 @@ import {
   CheckCircle2,
 } from "lucide-react";
 import RuleOfThreeCalculator from "./RuleOfThreeCalculator";
-import AdBanner from "@/components/AdBanner";
+import AdSlot from "@/components/AdSlot";
+import SeoSchema from "@/components/SeoSchema";
+import FaqAccordion from "@/components/FaqAccordion";
+import RelatedTools from "@/components/RelatedTools";
+import { getToolById } from "@/lib/tools-registry";
+
+const TOOL = getToolById("calculadora-regla-de-tres")!;
 
 export const metadata: Metadata = {
   title: "Calculadora de Regla de Tres Online – Directa e Inversa (Gratis)",
   description:
     "Resuelva problemas de proporcionalidad al instante con nuestra calculadora de regla de tres simple directa e inversa. Incluye fórmula y explicación paso a paso.",
+  robots: {
+    index: true,
+    follow: true,
+  },
   alternates: {
     canonical: "/es/calculadora-regla-de-tres",
   },
@@ -60,47 +70,22 @@ const FAQ_RULE_THREE_DATA = [
     answer:
       "La regla de tres se utiliza a diario para: 1. Ajustar ingredientes en recetas de cocina según el número de comensales. 2. Calcular descuentos en rebajas y porcentajes. 3. Calcular el consumo de gasolina según la distancia. 4. Convertir escalas en planos arquitectónicos y dosificaciones farmacéuticas.",
   },
+  {
+    question: "¿Cómo se aplica la regla de tres para calcular porcentajes rápidamente?",
+    answer:
+      "Basta con igualar la cantidad total al 100 % en la fila superior (A = 100, B = Total) y colocar en la fila inferior el porcentaje deseado en C o el importe parcial para obtener el tanto por ciento equivalente de manera exacta e instantánea.",
+  },
 ];
 
 export default function RuleOfThreePage() {
-  const jsonLdFaq = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: FAQ_RULE_THREE_DATA.map((item) => ({
-      "@type": "Question",
-      name: item.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: item.answer,
-      },
-    })),
-  };
-
-  const jsonLdWebApp = {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    name: "Calculadora de Regla de Tres Online",
-    applicationCategory: "EducationalApplication",
-    operatingSystem: "All",
-    offers: {
-      "@type": "Offer",
-      price: "0",
-      priceCurrency: "EUR",
-    },
-    description:
-      "Calculadora online para resolver la regla de tres simple directa e inversa con resolución y desglose de fórmula paso a paso.",
-  };
-
   return (
     <div className="py-8 sm:py-12" lang="es">
-      {/* Schema.org Structured Data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdFaq) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdWebApp) }}
+      <SeoSchema
+        tool={TOOL}
+        faqs={FAQ_RULE_THREE_DATA}
+        pageTitle="Calculadora de Regla de Tres Online – Directa e Inversa"
+        pageDescription="Calculadora online para resolver la regla de tres simple directa e inversa con resolución y desglose de fórmula paso a paso."
+        priceCurrency="EUR"
       />
 
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
@@ -110,8 +95,8 @@ export default function RuleOfThreePage() {
             Inicio
           </Link>
           <ChevronRight className="h-3 w-3" />
-          <Link href="/#tools" className="hover:text-neutral-900 transition">
-            Matemáticas & Utilidades
+          <Link href="/es" className="hover:text-neutral-900 transition">
+            Calculadoras en Español (ES)
           </Link>
           <ChevronRight className="h-3 w-3" />
           <span className="font-semibold text-neutral-900" aria-current="page">
@@ -135,9 +120,8 @@ export default function RuleOfThreePage() {
           </p>
         </header>
 
-        {/* 1. TOP AD BANNER PLACEHOLDER */}
         <div className="mb-8">
-          <AdBanner position="top" adSlot="banner-top-regla-de-tres-es" />
+          <AdSlot position="top" adSlot="banner-top-regla-de-tres-es" />
         </div>
 
         {/* 2. THE RULE OF THREE CALCULATOR COMPONENT */}
@@ -147,9 +131,8 @@ export default function RuleOfThreePage() {
           </Suspense>
         </section>
 
-        {/* 3. IN-CONTENT AD BANNER PLACEHOLDER */}
         <div className="my-10">
-          <AdBanner position="in-content" adSlot="content-banner-regla-de-tres-es" />
+          <AdSlot position="in-content" adSlot="content-banner-regla-de-tres-es" />
         </div>
 
         {/* 4. HIGH-QUALITY NATIVE SPANISH SEO CONTENT */}
@@ -308,6 +291,15 @@ export default function RuleOfThreePage() {
                 </span>
               </div>
             </div>
+
+            <div className="mt-8 rounded-2xl border border-neutral-200 bg-neutral-50/70 p-6 space-y-3 text-sm text-neutral-600 leading-relaxed">
+              <h3 className="text-base font-bold text-neutral-900 m-0">
+                Errores frecuentes al plantear una regla de tres y cómo evitarlos
+              </h3>
+              <p>
+                El fallo más habitual al resolver problemas de proporcionalidad consiste en mezclar magnitudes expresadas en unidades diferentes (por ejemplo, comparar kilómetros por hora frente a minutos, o gramos frente a kilogramos) sin haberlas convertido previamente a la misma escala. Asimismo, compruebe siempre que la incógnita y la magnitud base estén alineadas en las columnas correctas antes de multiplicar o dividir. Si aplica esta sencilla verificación lógica antes de ejecutar la operación, sus cálculos financieros, culinarios, académicos o de obra tendrán precisión matemática absoluta.
+              </p>
+            </div>
           </section>
 
           {/* Section 4: Preguntas Frecuentes (FAQ) */}
@@ -319,18 +311,7 @@ export default function RuleOfThreePage() {
               </h2>
             </div>
 
-            <div className="divide-y divide-neutral-200">
-              {FAQ_RULE_THREE_DATA.map((faq, index) => (
-                <div key={index} className="py-5">
-                  <h3 className="text-base font-bold text-neutral-900 m-0">
-                    {faq.question}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-neutral-600 m-0">
-                    {faq.answer}
-                  </p>
-                </div>
-              ))}
-            </div>
+            <FaqAccordion faqs={FAQ_RULE_THREE_DATA} dir="ltr" accent="indigo" />
           </section>
         </article>
 
@@ -344,6 +325,8 @@ export default function RuleOfThreePage() {
             Todos los cálculos aritméticos se resuelven en memoria local con precisión decimal exacta y sin publicidad intrusiva.
           </p>
         </aside>
+
+        <RelatedTools currentToolId="calculadora-regla-de-tres" language="es" />
       </div>
     </div>
   );

@@ -9,16 +9,25 @@ import {
   Calculator,
   BookOpen,
   ArrowRightLeft,
-  CheckCircle2,
   TrendingDown,
 } from "lucide-react";
 import ElectricityCalculator from "./ElectricityCalculator";
-import AdBanner from "@/components/AdBanner";
+import AdSlot from "@/components/AdSlot";
+import SeoSchema from "@/components/SeoSchema";
+import FaqAccordion from "@/components/FaqAccordion";
+import RelatedTools from "@/components/RelatedTools";
+import { getToolById } from "@/lib/tools-registry";
+
+const TOOL = getToolById("stromverbrauch-rechner")!;
 
 export const metadata: Metadata = {
   title: "Stromverbrauch Rechner – Stromkosten einfach online berechnen (Kostenlos)",
   description:
     "Berechnen Sie kostenlos den Stromverbrauch (kWh) und die jährlichen Stromkosten Ihrer Haushaltsgeräte mit unserem präzisen Online-Stromrechner.",
+  robots: {
+    index: true,
+    follow: true,
+  },
   alternates: {
     canonical: "/de/stromverbrauch-rechner",
   },
@@ -48,7 +57,7 @@ const FAQ_GERMAN_DATA = [
   {
     question: "Was kostet 1 kWh Strom aktuell in Deutschland?",
     answer:
-      "In Deutschland liegt der durchschnittliche Strompreis für private Haushalte aktuell zwischen 34 und 38 Cent pro Kilowattstunde (Stand 2024–2026). Je nach Stromanbieter, Bundesland und Vertrag (Grundversorgung vs. Sondervertrag) können die Preise variieren. Unser Rechner nutzt standardmäßig den realistischen Durchschnittswert von 35 Cent/kWh.",
+      "In Deutschland liegt der durchschnittliche Strompreis für private Haushalte im Jahr 2026 je nach Tarif zwischen 32 und 38 Cent pro Kilowattstunde. Je nach Stromanbieter, Region und Vertragslaufzeit (Grundversorgung vs. Neukundentarif) können die Preise variieren. Unser Rechner nutzt standardmäßig 35 Cent/kWh.",
   },
   {
     question: "Welche Geräte verbrauchen am meisten Strom im Haushalt?",
@@ -59,6 +68,11 @@ const FAQ_GERMAN_DATA = [
     question: "Wie kann man die Stromkosten im Alltag am effektivsten senken?",
     answer:
       "1. Standby-Verluste durch schaltbare Steckdosenleisten vermeiden. 2. Haushaltsgroßgeräte (Waschmaschine, Spülmaschine) im Eco-Modus und voll beladen betreiben. 3. Veraltete Geräte gegen energieeffiziente Modelle (Energieeffizienzklasse A oder B) austauschen. 4. Regelmäßig den Stromanbieter vergleichen und in günstigere Tarife wechseln.",
+  },
+  {
+    question: "Wie viel Strom verbraucht ein Gerät im Standby-Betrieb?",
+    answer:
+      "Moderne EU-Ökodesign-Richtlinien begrenzen Standby auf 0,5 bis 1 Watt, doch ältere Receiver, Konsolen oder Kaffeevollautomaten ziehen oft 5 bis 15 Watt dauerhaft. Bei 10 Watt über 24 Stunden an 365 Tagen entstehen 87,6 kWh – das sind über 30 € vermeidbare Stromkosten pro Gerät.",
   },
 ];
 
@@ -122,44 +136,14 @@ const APPLIANCES_TABLE = [
 ];
 
 export default function ElectricityCalculatorPage() {
-  const jsonLdFaq = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: FAQ_GERMAN_DATA.map((item) => ({
-      "@type": "Question",
-      name: item.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: item.answer,
-      },
-    })),
-  };
-
-  const jsonLdWebApp = {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    name: "Stromverbrauch Rechner",
-    applicationCategory: "UtilityApplication",
-    operatingSystem: "All",
-    offers: {
-      "@type": "Offer",
-      price: "0",
-      priceCurrency: "EUR",
-    },
-    description:
-      "Online-Stromrechner zur Ermittlung des Stromverbrauchs (kWh) und der Stromkosten für Haushaltsgeräte in Deutschland.",
-  };
-
   return (
     <div className="py-8 sm:py-12" lang="de">
-      {/* Schema.org Structured Data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdFaq) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdWebApp) }}
+      <SeoSchema
+        tool={TOOL}
+        faqs={FAQ_GERMAN_DATA}
+        pageTitle="Stromverbrauch & Stromkosten Rechner (kWh/Jahr)"
+        pageDescription="Online-Stromrechner zur Ermittlung des Stromverbrauchs (kWh) und der Stromkosten für Haushaltsgeräte in Deutschland 2026."
+        priceCurrency="EUR"
       />
 
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
@@ -169,8 +153,8 @@ export default function ElectricityCalculatorPage() {
             Startseite
           </Link>
           <ChevronRight className="h-3 w-3" />
-          <Link href="/#tools" className="hover:text-neutral-900 transition">
-            Energie & Haushalt
+          <Link href="/de" className="hover:text-neutral-900 transition">
+            Rechner auf Deutsch (DE)
           </Link>
           <ChevronRight className="h-3 w-3" />
           <span className="font-semibold text-neutral-900" aria-current="page">
@@ -182,7 +166,7 @@ export default function ElectricityCalculatorPage() {
         <header className="mb-6 text-center">
           <div className="inline-flex items-center gap-1.5 rounded-full border border-blue-200 bg-blue-50 px-3.5 py-1 text-xs font-semibold text-blue-700 shadow-2xs mb-3">
             <Zap className="h-3.5 w-3.5 text-amber-500" />
-            <span>Aktualisiert für deutsche Stromtarife 2024 – 2026</span>
+            <span>Aktualisiert für deutsche Stromtarife 2026</span>
           </div>
 
           <h1 className="text-3xl font-black tracking-tight text-neutral-900 sm:text-4xl md:text-5xl">
@@ -194,9 +178,8 @@ export default function ElectricityCalculatorPage() {
           </p>
         </header>
 
-        {/* 1. TOP AD BANNER PLACEHOLDER */}
         <div className="mb-8">
-          <AdBanner position="top" adSlot="banner-top-stromrechner-de" />
+          <AdSlot position="top" adSlot="banner-top-stromrechner-de" />
         </div>
 
         {/* 2. ELECTRICITY CALCULATOR COMPONENT */}
@@ -204,9 +187,8 @@ export default function ElectricityCalculatorPage() {
           <ElectricityCalculator />
         </section>
 
-        {/* 3. IN-CONTENT AD BANNER PLACEHOLDER */}
         <div className="my-10">
-          <AdBanner position="in-content" adSlot="content-banner-stromrechner-de" />
+          <AdSlot position="in-content" adSlot="content-banner-stromrechner-de" />
         </div>
 
         {/* 4. HIGH-QUALITY NATIVE GERMAN SEO CONTENT */}
@@ -371,6 +353,47 @@ export default function ElectricityCalculatorPage() {
             </div>
           </section>
 
+          {/* Section 3B: Zwei konkrete Rechenbeispiele aus der Praxis */}
+          <section className="rounded-3xl border border-neutral-200 bg-white p-6 sm:p-10 shadow-xs">
+            <h2 className="text-xl font-bold tracking-tight text-neutral-900 sm:text-2xl m-0">
+              Zwei Rechenbeispiele aus der Praxis (2026)
+            </h2>
+            <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="rounded-2xl border border-emerald-200/80 bg-emerald-50/40 p-5">
+                <h3 className="text-sm font-bold text-emerald-900 m-0">
+                  Beispiel 1: Home-Office-PC &amp; zwei Monitore
+                </h3>
+                <p className="mt-2 text-xs sm:text-sm text-neutral-700 leading-relaxed">
+                  Ein Büro-Arbeitsplatz zieht <strong>180 Watt</strong> und läuft an <strong>250 Arbeitstagen</strong> je{" "}
+                  <strong>8 Stunden</strong> bei 35 Cent/kWh: <code>(180 × 8 ÷ 1.000) × 250 = 360 kWh/Jahr</code>, was{" "}
+                  <strong>126,00 € Stromkosten pro Jahr</strong> entspricht.
+                </p>
+              </div>
+              <div className="rounded-2xl border border-blue-200/80 bg-blue-50/40 p-5">
+                <h3 className="text-sm font-bold text-blue-900 m-0">
+                  Beispiel 2: Elektrischer Heizlüfter im Winter
+                </h3>
+                <p className="mt-2 text-xs sm:text-sm text-neutral-700 leading-relaxed">
+                  Ein Heizlüfter mit <strong>2.000 Watt</strong> läuft 60 Wintertage je <strong>2 Stunden</strong>:{" "}
+                  <code>(2.000 × 2 ÷ 1.000) × 60 = 240 kWh</code>. Bei 0,35 €/kWh fallen allein für diese Zusatzheizung{" "}
+                  <strong>84,00 €</strong> an.
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-8 rounded-2xl border border-neutral-200 bg-neutral-50/70 p-6 space-y-3 text-sm text-neutral-600 leading-relaxed">
+              <h3 className="text-base font-bold text-neutral-900 m-0">
+                Heimliche Stromfresser und Standby-Kosten im deutschen Haushalt 2026 erkennen
+              </h3>
+              <p>
+                Viele Haushalte unterschätzen, wie stark Dauerverbraucher wie WLAN-Router, NAS-Server, Smart-Home-Zentralen oder ältere Gefrierschränke die jährliche Stromabrechnung in die Höhe treiben. Selbst scheinbar kleine Leistungen von 15 bis 25 Watt summieren sich im 24/7-Dauerbetrieb auf 130 bis 220 Kilowattstunden pro Jahr – das entspricht bei einem Strompreis von 35 Cent/kWh bereits bis zu 77 Euro je Gerät.
+              </p>
+              <p>
+                Besonders wirkungsvoll sparen Sie, indem Sie aufschreiben, welche Geräte tatsächlich durchlaufen müssen, schaltbare Mehrfachsteckdosen für TV- und PC-Ecken einsetzen und die reale Leistungsaufnahme moderner Küchengeräte im Eco-Programm über mehrere Tage hinweg vergleichen.
+              </p>
+            </div>
+          </section>
+
           {/* Section 4: Häufig gestellte Fragen (FAQ) */}
           <section className="rounded-3xl border border-neutral-200 bg-white p-6 sm:p-10 shadow-xs">
             <div className="flex items-center gap-2.5 text-blue-600 mb-6">
@@ -380,18 +403,7 @@ export default function ElectricityCalculatorPage() {
               </h2>
             </div>
 
-            <div className="divide-y divide-neutral-200">
-              {FAQ_GERMAN_DATA.map((faq, index) => (
-                <div key={index} className="py-5">
-                  <h3 className="text-base font-bold text-neutral-900 m-0">
-                    {faq.question}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-neutral-600 m-0">
-                    {faq.answer}
-                  </p>
-                </div>
-              ))}
-            </div>
+            <FaqAccordion faqs={FAQ_GERMAN_DATA} dir="ltr" accent="emerald" />
           </section>
         </article>
 
@@ -406,6 +418,8 @@ export default function ElectricityCalculatorPage() {
             oder persönliche Angaben an externe Server übertragen.
           </p>
         </aside>
+
+        <RelatedTools currentToolId="stromverbrauch-rechner" language="de" />
       </div>
     </div>
   );

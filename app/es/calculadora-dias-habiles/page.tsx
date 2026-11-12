@@ -13,12 +13,22 @@ import {
   Sparkles,
 } from "lucide-react";
 import WorkingDaysCalculator from "./WorkingDaysCalculator";
-import AdBanner from "@/components/AdBanner";
+import AdSlot from "@/components/AdSlot";
+import SeoSchema from "@/components/SeoSchema";
+import FaqAccordion from "@/components/FaqAccordion";
+import RelatedTools from "@/components/RelatedTools";
+import { getToolById } from "@/lib/tools-registry";
+
+const TOOL = getToolById("calculadora-dias-habiles")!;
 
 export const metadata: Metadata = {
   title: "Calculadora de Días Hábiles y Laborables – Sumar Días a una Fecha",
   description:
     "Calcule fácilmente los días hábiles o laborables entre fechas o sume días hábiles a una fecha específica excluyendo fines de semana. Herramienta 100% gratis.",
+  robots: {
+    index: true,
+    follow: true,
+  },
   alternates: {
     canonical: "/es/calculadora-dias-habiles",
   },
@@ -60,47 +70,22 @@ const FAQ_SPANISH_DATA = [
     answer:
       "Los días naturales son todos los días correlativos del año civil (de lunes a domingo, incluidos festivos). Por su parte, los días hábiles son exclusivamente aquellos con validez jurídica o administrativa para realizar trámites o presentar alegaciones, excluyendo fines de semana y festivos.",
   },
+  {
+    question: "¿El mes de agosto es hábil para procedimientos administrativos y judiciales en 2026?",
+    answer:
+      "En el ámbito judicial español (jurisdicción civil, social y contencioso-administrativa ordinaria), agosto es generalmente inhábil salvo actuaciones urgentes o penales. En cambio, en el procedimiento administrativo común ante Hacienda, Seguridad Social o ayuntamientos, agosto sí cuenta como mes hábil ordinario.",
+  },
 ];
 
 export default function WorkingDaysCalculatorPage() {
-  const jsonLdFaq = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: FAQ_SPANISH_DATA.map((item) => ({
-      "@type": "Question",
-      name: item.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: item.answer,
-      },
-    })),
-  };
-
-  const jsonLdWebApp = {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    name: "Calculadora de Días Hábiles y Laborables",
-    applicationCategory: "BusinessApplication",
-    operatingSystem: "All",
-    offers: {
-      "@type": "Offer",
-      price: "0",
-      priceCurrency: "EUR",
-    },
-    description:
-      "Herramienta gratuita para calcular y sumar o restar días hábiles y laborables a una fecha excluyendo fines de semana.",
-  };
-
   return (
     <div className="py-8 sm:py-12" lang="es">
-      {/* Schema.org Structured Data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdFaq) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdWebApp) }}
+      <SeoSchema
+        tool={TOOL}
+        faqs={FAQ_SPANISH_DATA}
+        pageTitle="Calculadora de Días Hábiles y Laborables"
+        pageDescription="Herramienta gratuita para calcular y sumar o restar días hábiles y laborables a una fecha excluyendo fines de semana en 2026."
+        priceCurrency="EUR"
       />
 
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
@@ -110,8 +95,8 @@ export default function WorkingDaysCalculatorPage() {
             Inicio
           </Link>
           <ChevronRight className="h-3 w-3" />
-          <Link href="/#tools" className="hover:text-neutral-900 transition">
-            Herramientas Legales & Gestión
+          <Link href="/es" className="hover:text-neutral-900 transition">
+            Calculadoras en Español (ES)
           </Link>
           <ChevronRight className="h-3 w-3" />
           <span className="font-semibold text-neutral-900" aria-current="page">
@@ -123,7 +108,7 @@ export default function WorkingDaysCalculatorPage() {
         <header className="mb-6 text-center">
           <div className="inline-flex items-center gap-1.5 rounded-full border border-blue-200 bg-blue-50 px-3.5 py-1 text-xs font-semibold text-blue-700 shadow-2xs mb-3">
             <Sparkles className="h-3.5 w-3.5 text-blue-600" />
-            <span>Actualizado con la normativa administrativa y procesal</span>
+            <span>Actualizado con la normativa administrativa 2026</span>
           </div>
 
           <h1 className="text-3xl font-black tracking-tight text-neutral-900 sm:text-4xl md:text-5xl">
@@ -135,9 +120,8 @@ export default function WorkingDaysCalculatorPage() {
           </p>
         </header>
 
-        {/* 1. TOP AD BANNER PLACEHOLDER */}
         <div className="mb-8">
-          <AdBanner position="top" adSlot="banner-top-dias-habiles-es" />
+          <AdSlot position="top" adSlot="banner-top-dias-habiles-es" />
         </div>
 
         {/* 2. THE WORKING DAYS CALCULATOR COMPONENT */}
@@ -147,9 +131,8 @@ export default function WorkingDaysCalculatorPage() {
           </Suspense>
         </section>
 
-        {/* 3. IN-CONTENT AD BANNER PLACEHOLDER */}
         <div className="my-10">
-          <AdBanner position="in-content" adSlot="content-banner-dias-habiles-es" />
+          <AdSlot position="in-content" adSlot="content-banner-dias-habiles-es" />
         </div>
 
         {/* 4. HIGH-QUALITY NATIVE SPANISH SEO CONTENT */}
@@ -317,6 +300,31 @@ export default function WorkingDaysCalculatorPage() {
             </div>
           </section>
 
+          {/* Section 3B: Dos Ejemplos Prácticos Reales */}
+          <section className="rounded-3xl border border-neutral-200 bg-white p-6 sm:p-10 shadow-xs">
+            <h2 className="text-xl font-bold tracking-tight text-neutral-900 sm:text-2xl m-0">
+              Dos ejemplos prácticos de cálculo de plazos (2026)
+            </h2>
+            <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="rounded-2xl border border-amber-200/80 bg-amber-50/40 p-5">
+                <h3 className="text-sm font-bold text-amber-900 m-0">
+                  Ejemplo 1: Plazo administrativo de 10 días hábiles
+                </h3>
+                <p className="mt-2 text-xs sm:text-sm text-neutral-700 leading-relaxed">
+                  Si recibe una notificación el lunes 2 de noviembre de 2026 con un plazo de <strong>10 días hábiles</strong> para presentar alegaciones (excluyendo sábados y domingos), se saltan 2 fines de semana completos y el plazo vence el <strong>lunes 16 de noviembre</strong> (salvo festivo local o autonómico).
+                </p>
+              </div>
+              <div className="rounded-2xl border border-blue-200/80 bg-blue-50/40 p-5">
+                <h3 className="text-sm font-bold text-blue-900 m-0">
+                  Ejemplo 2: Restar días laborables para entrega de proyecto
+                </h3>
+                <p className="mt-2 text-xs sm:text-sm text-neutral-700 leading-relaxed">
+                  Si un cliente fija la entrega final el <strong>30 de noviembre de 2026</strong> y necesita <strong>15 días hábiles</strong> previos de desarrollo, seleccionando &quot;Restar días hábiles&quot; obtendrá que el inicio efectivo debe producirse el <strong>lunes 9 de noviembre</strong> (21 días naturales en total).
+                </p>
+              </div>
+            </div>
+          </section>
+
           {/* Section 4: Preguntas Frecuentes (FAQ) */}
           <section className="rounded-3xl border border-neutral-200 bg-white p-6 sm:p-10 shadow-xs">
             <div className="flex items-center gap-2.5 text-blue-600 mb-6">
@@ -326,18 +334,7 @@ export default function WorkingDaysCalculatorPage() {
               </h2>
             </div>
 
-            <div className="divide-y divide-neutral-200">
-              {FAQ_SPANISH_DATA.map((faq, index) => (
-                <div key={index} className="py-5">
-                  <h3 className="text-base font-bold text-neutral-900 m-0">
-                    {faq.question}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-neutral-600 m-0">
-                    {faq.answer}
-                  </p>
-                </div>
-              ))}
-            </div>
+            <FaqAccordion faqs={FAQ_SPANISH_DATA} dir="ltr" accent="amber" />
           </section>
         </article>
 
@@ -352,6 +349,8 @@ export default function WorkingDaysCalculatorPage() {
             No almacenamos fechas, documentos ni datos de navegación en servidores externos.
           </p>
         </aside>
+
+        <RelatedTools currentToolId="calculadora-dias-habiles" language="es" />
       </div>
     </div>
   );

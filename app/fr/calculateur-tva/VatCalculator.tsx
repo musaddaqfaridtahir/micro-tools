@@ -26,6 +26,18 @@ const FRENCH_RATES: RateOption[] = [
   { value: 2.1, label: "2,1 %", sublabel: "Taux particulier" },
 ];
 
+const QUICK_PRESETS: Array<{
+  label: string;
+  mode: Mode;
+  amount: string;
+  rate: number;
+}> = [
+  { label: "Devis 1 000 € HT (20 %)", mode: "ht_to_ttc", amount: "1000", rate: 20 },
+  { label: "Facture 2 400 € TTC (20 %)", mode: "ttc_to_ht", amount: "2400", rate: 20 },
+  { label: "Restaurant 88 € TTC (10 %)", mode: "ttc_to_ht", amount: "88", rate: 10 },
+  { label: "Alimentaire 150 € HT (5,5 %)", mode: "ht_to_ttc", amount: "150", rate: 5.5 },
+];
+
 export default function VatCalculator() {
   const inputId = useId();
   const customRateId = useId();
@@ -142,12 +154,33 @@ export default function VatCalculator() {
         <button
           type="button"
           onClick={handleReset}
-          className="inline-flex items-center gap-1.5 self-start sm:self-auto rounded-xl border border-neutral-200 px-3.5 py-2 text-xs font-semibold text-neutral-600 transition hover:bg-neutral-50 active:scale-95"
+          className="inline-flex items-center gap-1.5 self-start sm:self-auto rounded-xl border border-neutral-200 px-3.5 py-2 text-xs font-semibold text-neutral-600 transition hover:bg-neutral-50 active:scale-95 cursor-pointer"
           title="Réinitialiser tous les champs"
         >
           <RotateCcw className="h-3.5 w-3.5 text-neutral-500" />
           <span>Réinitialiser</span>
         </button>
+      </div>
+
+      {/* Quick Presets Bar */}
+      <div className="mt-4 flex flex-wrap items-center gap-2">
+        <span className="text-[11px] font-semibold uppercase tracking-wider text-neutral-500">
+          Exemples rapides :
+        </span>
+        {QUICK_PRESETS.map((preset) => (
+          <button
+            key={preset.label}
+            type="button"
+            onClick={() => {
+              setMode(preset.mode);
+              setAmountStr(preset.amount);
+              setSelectedRate(preset.rate);
+            }}
+            className="rounded-lg border border-blue-200/80 bg-blue-50/70 px-2.5 py-1 text-xs font-medium text-blue-800 transition hover:bg-blue-100 cursor-pointer"
+          >
+            {preset.label}
+          </button>
+        ))}
       </div>
 
       {/* Main Form: Input Amount + Rate Selector */}

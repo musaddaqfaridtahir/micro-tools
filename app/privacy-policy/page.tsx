@@ -2,6 +2,7 @@ import React from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ChevronRight, ShieldCheck, Lock, Eye, FileText, CheckCircle2 } from "lucide-react";
+import { SITE_URL } from "@/lib/site-config";
 
 export const metadata: Metadata = {
   title: "Privacy Policy – GDPR & Google AdSense Compliant",
@@ -54,7 +55,7 @@ export default function PrivacyPolicyPage() {
               </h2>
             </div>
             <p>
-              At <strong>MicroTools</strong> (accessible at <code>https://microtools.example.com</code>), 
+              At <strong>MicroTools</strong> (accessible at <code>{SITE_URL}</code>), 
               the privacy of our visitors is one of our main priorities. This Privacy Policy document describes 
               the types of information that are collected and recorded by MicroTools and how we handle and protect it.
             </p>
@@ -134,7 +135,7 @@ export default function PrivacyPolicyPage() {
             </div>
             <p>
               Google is one of the third-party vendors on our site. It also uses cookies, known as DART cookies, 
-              to serve ads to our site visitors based upon their visit to <code>https://microtools.example.com</code> and other sites on the internet.
+              to serve ads to our site visitors based upon their visit to <code>{SITE_URL}</code> and other sites on the internet.
             </p>
             <div className="mt-4 rounded-xl bg-white p-4 border border-blue-200 text-xs sm:text-sm text-neutral-800 space-y-2">
               <p>

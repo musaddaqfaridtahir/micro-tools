@@ -8,12 +8,23 @@ import {
   Check,
   RotateCcw,
   Sparkles,
-  Info,
-  HelpCircle,
   Equal,
 } from "lucide-react";
 
 type ProportionMode = "direct" | "inverse";
+
+const QUICK_SCENARIOS: Array<{
+  label: string;
+  mode: ProportionMode;
+  a: string;
+  b: string;
+  c: string;
+}> = [
+  { label: "Compra 3 kg → 7 kg", mode: "direct", a: "3", b: "6", c: "7" },
+  { label: "Descuento 20 % en 150 €", mode: "direct", a: "100", b: "20", c: "150" },
+  { label: "4 obreros 10 días → 8 (Inversa)", mode: "inverse", a: "4", b: "10", c: "8" },
+  { label: "80 km/h en 3h → 120 km/h (Inversa)", mode: "inverse", a: "80", b: "3", c: "120" },
+];
 
 export default function RuleOfThreeCalculator() {
   const aId = useId();
@@ -76,12 +87,6 @@ export default function RuleOfThreeCalculator() {
     setCopied(false);
   };
 
-  const handleLoadExample = () => {
-    setValA("20");
-    setValB("100");
-    setValC("50");
-  };
-
   const copyToClipboard = async () => {
     if (resultX === null) return;
     const textToCopy = formatNumber(resultX);
@@ -135,21 +140,36 @@ export default function RuleOfThreeCalculator() {
         <div className="flex items-center gap-2 self-start sm:self-auto">
           <button
             type="button"
-            onClick={handleLoadExample}
-            className="rounded-xl border border-neutral-200 px-3 py-2 text-xs font-semibold text-neutral-600 transition hover:bg-neutral-50"
-          >
-            Cargar ejemplo
-          </button>
-          <button
-            type="button"
             onClick={handleReset}
-            className="inline-flex items-center gap-1.5 rounded-xl border border-neutral-200 px-3 py-2 text-xs font-semibold text-neutral-600 transition hover:bg-neutral-50 active:scale-95"
+            className="inline-flex items-center gap-1.5 rounded-xl border border-neutral-200 px-3 py-2 text-xs font-semibold text-neutral-600 transition hover:bg-neutral-50 active:scale-95 cursor-pointer"
             title="Borrar todos los campos"
           >
             <RotateCcw className="h-3.5 w-3.5 text-neutral-500" />
             <span>Borrar datos</span>
           </button>
         </div>
+      </div>
+
+      {/* Quick Presets */}
+      <div className="mt-4 flex flex-wrap items-center gap-2">
+        <span className="text-[11px] font-semibold uppercase tracking-wider text-neutral-500">
+          Ejemplos rápidos:
+        </span>
+        {QUICK_SCENARIOS.map((item) => (
+          <button
+            key={item.label}
+            type="button"
+            onClick={() => {
+              setMode(item.mode);
+              setValA(item.a);
+              setValB(item.b);
+              setValC(item.c);
+            }}
+            className="rounded-lg border border-indigo-200/80 bg-indigo-50/70 px-2.5 py-1 text-xs font-medium text-indigo-800 transition hover:bg-indigo-100 cursor-pointer"
+          >
+            {item.label}
+          </button>
+        ))}
       </div>
 
       {/* Visual 2x2 Proportion Layout */}

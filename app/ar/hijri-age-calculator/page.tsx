@@ -9,17 +9,25 @@ import {
   BookOpen,
   ArrowRightLeft,
   Sparkles,
-  Moon,
-  Sun,
   Scale,
 } from "lucide-react";
 import HijriAgeCalculator from "./HijriAgeCalculator";
-import AdBanner from "@/components/AdBanner";
+import AdSlot from "@/components/AdSlot";
+import SeoSchema from "@/components/SeoSchema";
+import FaqAccordion from "@/components/FaqAccordion";
+import RelatedTools from "@/components/RelatedTools";
+import { getToolById } from "@/lib/tools-registry";
+
+const TOOL = getToolById("hijri-age-calculator")!;
 
 export const metadata: Metadata = {
   title: "حاسبة العمر بالهجري والميلادي – احسب عمرك بدقة أونلاين (مجاناً)",
   description:
     "احسب عمرك بالتفصيل بالسنوات والشهور والأيام بالتقويم الهجري والميلادي مجاناً مع معرفة تاريخ ميلادك الهجري والعد التنازلي لعيد ميلادك القادم.",
+  robots: {
+    index: true,
+    follow: true,
+  },
   alternates: {
     canonical: "/ar/hijri-age-calculator",
   },
@@ -61,47 +69,22 @@ const FAQ_ARABIC_DATA = [
     answer:
       "توفر حاسبتنا محولاً مدمجاً يعتمد على تقويم أم القرى الرسمي المعتمد في المملكة العربية السعودية. بمجرد اختيار يوم وشهر وسنة ميلادك، تظهر لك بطاقة 'تاريخ ميلادك الهجري الموافق' باليوم والشهر والسنة الهجرية دون الحاجة لأي عملية يدوية.",
   },
+  {
+    question: "هل تُحسب السنوات الكبيسة ضمن إجمالي الأيام في حاسبة العمر؟",
+    answer:
+      "نعم، تعتمد حاسبة العمر على الفرق الزمني الفعلي بين التواريخ الميلادية مع احتساب السنوات الكبيسة التي يبلغ عدد أيامها 366 يوماً بدقة كاملة، مما يضمن دقة عدد الأيام والأسابيع والساعات التي عشتها دون أي تقريب عشوائي.",
+  },
 ];
 
 export default function HijriAgeCalculatorPage() {
-  const jsonLdFaq = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: FAQ_ARABIC_DATA.map((item) => ({
-      "@type": "Question",
-      name: item.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: item.answer,
-      },
-    })),
-  };
-
-  const jsonLdWebApp = {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    name: "حاسبة العمر بالهجري والميلادي",
-    applicationCategory: "UtilityApplication",
-    operatingSystem: "All",
-    offers: {
-      "@type": "Offer",
-      price: "0",
-      priceCurrency: "SAR",
-    },
-    description:
-      "أداة مجانية لحساب العمر بدقة بالسنوات والأشهر والأيام بالتقويمين الهجري والميلادي مع تحويل تاريخ الميلاد وفق تقويم أم القرى.",
-  };
-
   return (
     <div className="py-8 sm:py-12" lang="ar" dir="rtl">
-      {/* Schema.org Structured Data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdFaq) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdWebApp) }}
+      <SeoSchema
+        tool={TOOL}
+        faqs={FAQ_ARABIC_DATA}
+        pageTitle="حاسبة العمر بالهجري والميلادي – تقويم أم القرى"
+        pageDescription="أداة مجانية لحساب العمر بدقة بالسنوات والأشهر والأيام بالتقويمين الهجري والميلادي مع تحويل تاريخ الميلاد وفق تقويم أم القرى."
+        priceCurrency="SAR"
       />
 
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
@@ -111,8 +94,8 @@ export default function HijriAgeCalculatorPage() {
             الرئيسية
           </Link>
           <ChevronLeft className="h-3 w-3" />
-          <Link href="/#tools" className="hover:text-neutral-900 transition">
-            أدوات التوقيت والتاريخ
+          <Link href="/ar" className="hover:text-neutral-900 transition">
+            الأدوات العربية (AR)
           </Link>
           <ChevronLeft className="h-3 w-3" />
           <span className="font-semibold text-neutral-900" aria-current="page">
@@ -124,7 +107,7 @@ export default function HijriAgeCalculatorPage() {
         <header className="mb-6 text-center">
           <div className="inline-flex items-center gap-1.5 rounded-full border border-emerald-200 bg-emerald-50 px-3.5 py-1 text-xs font-semibold text-emerald-700 shadow-2xs mb-3">
             <Sparkles className="h-3.5 w-3.5 text-emerald-600" />
-            <span>معتمدة على تقويم أم القرى الرسمي والحساب الفلكي الدقيق</span>
+            <span>معتمدة على تقويم أم القرى الرسمي لعام 2026</span>
           </div>
 
           <h1 className="text-3xl font-black tracking-tight text-neutral-900 sm:text-4xl md:text-5xl">
@@ -136,9 +119,8 @@ export default function HijriAgeCalculatorPage() {
           </p>
         </header>
 
-        {/* 1. TOP AD BANNER PLACEHOLDER */}
         <div className="mb-8">
-          <AdBanner position="top" adSlot="banner-top-hijri-age-ar" />
+          <AdSlot position="top" adSlot="banner-top-hijri-age-ar" />
         </div>
 
         {/* 2. THE CALCULATOR COMPONENT */}
@@ -148,9 +130,8 @@ export default function HijriAgeCalculatorPage() {
           </Suspense>
         </section>
 
-        {/* 3. IN-CONTENT AD BANNER PLACEHOLDER */}
         <div className="my-10">
-          <AdBanner position="in-content" adSlot="content-banner-hijri-age-ar" />
+          <AdSlot position="in-content" adSlot="content-banner-hijri-age-ar" />
         </div>
 
         {/* 4. HIGH-QUALITY NATIVE ARABIC SEO CONTENT */}
@@ -303,6 +284,43 @@ export default function HijriAgeCalculatorPage() {
             </div>
           </section>
 
+          {/* Section 3B: مثالان عمليان لحساب العمر */}
+          <section className="rounded-3xl border border-neutral-200 bg-white p-6 sm:p-10 shadow-xs">
+            <h2 className="text-xl font-bold tracking-tight text-neutral-900 sm:text-2xl m-0">
+              أمثلة عملية توضح الفرق بين العمر الهجري والميلادي (2026)
+            </h2>
+            <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="rounded-2xl border border-emerald-200/80 bg-emerald-50/40 p-5">
+                <h3 className="text-sm font-bold text-emerald-900 m-0">
+                  المثال الأول: مواليد ١٥ مايو ١٩٩٨ (١٩ محرم ١٤١٩ هـ)
+                </h3>
+                <p className="mt-2 text-xs sm:text-sm text-neutral-700 leading-relaxed">
+                  في عام 2026 يبلغ العمر الميلادي لهذا الشخص حوالي <strong>28 سنة ميلادية</strong>، بينما يتجاوز عمره بالتقويم الهجري <strong>29 سنة هجرية</strong> أي بزيادة تقارب سنة كاملة نتيجة تراكم فارق ١١ يوماً في كل عام.
+                </p>
+              </div>
+              <div className="rounded-2xl border border-blue-200/80 bg-blue-50/40 p-5">
+                <h3 className="text-sm font-bold text-blue-900 m-0">
+                  المثال الثاني: حساب سن التقاعد أو القبول الجامعي (١ يناير ٢٠٠٠)
+                </h3>
+                <p className="mt-2 text-xs sm:text-sm text-neutral-700 leading-relaxed">
+                  لمواليد الألفية الجديدة (٢٤ رمضان ١٤٢٠ هـ)، تظهر الحاسبة في لحظة واحدة إجمالي الأيام التي عاشها الشخص (أكثر من 9,800 يوم) مع التوقيت الدقيق لتطابق الأوراق الرسمية السعودية والخليجية.
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-8 rounded-2xl border border-neutral-200 bg-neutral-50/70 p-6 space-y-3 text-sm text-neutral-600 leading-relaxed">
+              <h3 className="text-base font-bold text-neutral-900 m-0">
+                أهمية معرفة العمر بالتقويمين الهجري والميلادي في المعاملات الرسمية
+              </h3>
+              <p>
+                تعتمد الكثير من الجهات الحكومية والأنظمة في المملكة العربية السعودية ودول الخليج العربي على العمر الدقيق عند التقديم على الوظائف الحكومية، حساب سنوات الخدمة والتقاعد، تحديد سن التسجيل في المدارس، واستخراج وثائق الأحوال المدنية أو تجديد رخص القيادة. ونظراً لأن تقويم أم القرى القمري يتقدم سنوياً بمعدل 11 يوماً مقارنة بالتقويم الميلادي الشمسي، فإن الفارق يصبح مؤثراً جداً عند بلوغ سن الثامنة عشرة أو الستين.
+              </p>
+              <p>
+                تساعدك هذه الأداة على التحقق الفوري من عمرك الفعلي باليوم والشهر والسنة دون الوقوع في أخطاء التقدير التقريبي، مع إمكانية نسخ النتائج كاملة بنقرة واحدة لمشاركتها أو حفظها بأمان تام دون أي تسجيل.
+              </p>
+            </div>
+          </section>
+
           {/* Section 4: الأسئلة الشائعة (FAQ) */}
           <section className="rounded-3xl border border-neutral-200 bg-white p-6 sm:p-10 shadow-xs">
             <div className="flex items-center gap-2.5 text-emerald-600 mb-6">
@@ -312,18 +330,7 @@ export default function HijriAgeCalculatorPage() {
               </h2>
             </div>
 
-            <div className="divide-y divide-neutral-200">
-              {FAQ_ARABIC_DATA.map((faq, index) => (
-                <div key={index} className="py-5">
-                  <h3 className="text-base font-bold text-neutral-900 m-0">
-                    {faq.question}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-neutral-600 m-0">
-                    {faq.answer}
-                  </p>
-                </div>
-              ))}
-            </div>
+            <FaqAccordion faqs={FAQ_ARABIC_DATA} dir="rtl" accent="teal" />
           </section>
         </article>
 
@@ -337,6 +344,8 @@ export default function HijriAgeCalculatorPage() {
             تتم جميع الحسابات في المتصفح محلياً دون إرسال أو حفظ تواريخ ميلادك على أي خوادم خارجية.
           </p>
         </aside>
+
+        <RelatedTools currentToolId="hijri-age-calculator" language="ar" />
       </div>
     </div>
   );

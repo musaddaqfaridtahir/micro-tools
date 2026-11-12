@@ -1,76 +1,62 @@
 import type { MetadataRoute } from "next";
+import { SITE_URL, SITE_LAST_MODIFIED } from "@/lib/site-config";
+import {
+  TOOLS_REGISTRY,
+  LANGUAGE_HUBS,
+  LANGUAGE_ORDER,
+} from "@/lib/tools-registry";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://microtools.example.com";
-  const lastModified = new Date("2026-10-26");
+  const lastModified = new Date(SITE_LAST_MODIFIED);
 
-  return [
-    // Homepage
+  const staticRoutes: MetadataRoute.Sitemap = [
     {
-      url: baseUrl,
+      url: SITE_URL,
       lastModified,
       changeFrequency: "daily",
       priority: 1.0,
     },
-    // Tool 1: French VAT Calculator
     {
-      url: `${baseUrl}/fr/calculateur-tva`,
-      lastModified,
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
-    // Tool 2: German Electricity Calculator
-    {
-      url: `${baseUrl}/de/stromverbrauch-rechner`,
-      lastModified,
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
-    // Tool 3: Spanish Working Days Calculator
-    {
-      url: `${baseUrl}/es/calculadora-dias-habiles`,
-      lastModified,
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
-    // Tool 4: Arabic Hijri Age Calculator
-    {
-      url: `${baseUrl}/ar/hijri-age-calculator`,
-      lastModified,
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
-    // Tool 5: Spanish Rule of Three Calculator
-    {
-      url: `${baseUrl}/es/calculadora-regla-de-tres`,
-      lastModified,
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
-    // Legal & Trust Pages (AdSense Compliance)
-    {
-      url: `${baseUrl}/about`,
+      url: `${SITE_URL}/about`,
       lastModified,
       changeFrequency: "monthly",
       priority: 0.7,
     },
     {
-      url: `${baseUrl}/contact`,
+      url: `${SITE_URL}/contact`,
       lastModified,
       changeFrequency: "monthly",
       priority: 0.7,
     },
     {
-      url: `${baseUrl}/privacy-policy`,
+      url: `${SITE_URL}/privacy-policy`,
       lastModified,
       changeFrequency: "monthly",
       priority: 0.7,
     },
     {
-      url: `${baseUrl}/terms`,
+      url: `${SITE_URL}/terms`,
       lastModified,
       changeFrequency: "monthly",
       priority: 0.7,
     },
   ];
+
+  const languageHubRoutes: MetadataRoute.Sitemap = LANGUAGE_ORDER.map(
+    (code) => ({
+      url: `${SITE_URL}${LANGUAGE_HUBS[code].slug}`,
+      lastModified,
+      changeFrequency: "weekly",
+      priority: 0.85,
+    })
+  );
+
+  const toolRoutes: MetadataRoute.Sitemap = TOOLS_REGISTRY.map((tool) => ({
+    url: `${SITE_URL}${tool.slug}`,
+    lastModified,
+    changeFrequency: "weekly",
+    priority: 0.9,
+  }));
+
+  return [...staticRoutes, ...languageHubRoutes, ...toolRoutes];
 }

@@ -20,25 +20,31 @@ type WeekendMode = "sat_sun" | "sun_only";
 
 const QUICK_DAYS = [5, 10, 15, 20, 30];
 
+const emptySubscribe = () => () => {};
+
+function useTodayIso() {
+  return React.useSyncExternalStore(
+    emptySubscribe,
+    () => {
+      const t = new Date();
+      return `${t.getFullYear()}-${String(t.getMonth() + 1).padStart(2, "0")}-${String(t.getDate()).padStart(2, "0")}`;
+    },
+    () => "2026-11-12"
+  );
+}
+
 export default function WorkingDaysCalculator() {
   const dateInputId = useId();
   const daysInputId = useId();
 
-  // Static default for SSR/prerender stability
-  const [startDateStr, setStartDateStr] = useState<string>("2026-10-26");
+  const clientTodayStr = useTodayIso();
+  const [customStartDate, setCustomStartDate] = useState<string | null>(null);
+  const startDateStr = customStartDate ?? clientTodayStr;
+  const setStartDateStr = setCustomStartDate;
   const [businessDaysStr, setBusinessDaysStr] = useState<string>("10");
   const [mode, setMode] = useState<Mode>("add");
   const [weekendMode, setWeekendMode] = useState<WeekendMode>("sat_sun");
   const [copied, setCopied] = useState<boolean>(false);
-
-  // Sync to today's date on mount
-  React.useEffect(() => {
-    const today = new Date();
-    const y = today.getFullYear();
-    const m = String(today.getMonth() + 1).padStart(2, "0");
-    const d = String(today.getDate()).padStart(2, "0");
-    setStartDateStr(`${y}-${m}-${d}`);
-  }, []);
 
   // Parse days
   const businessDays = Math.max(0, parseInt(businessDaysStr, 10) || 0);
