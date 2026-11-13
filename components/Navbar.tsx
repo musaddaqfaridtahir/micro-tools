@@ -43,45 +43,45 @@ export default function Navbar() {
         {/* Brand Logo */}
         <Link
           href="/"
-          className="flex items-center gap-2.5 transition-opacity hover:opacity-90"
+          className="flex shrink-0 items-center gap-2.5 transition-opacity hover:opacity-90"
         >
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-blue-600 to-indigo-700 text-white shadow-sm shadow-blue-500/20">
+          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-blue-600 to-indigo-700 text-white shadow-sm shadow-blue-500/20">
             <Wrench className="h-5 w-5" />
           </div>
           <div className="flex flex-col">
-            <span translate="no" className="notranslate text-lg font-bold tracking-tight text-neutral-900">
+            <span translate="no" className="notranslate text-lg font-bold tracking-tight text-neutral-900 whitespace-nowrap">
               Micro<span className="text-blue-600">Tools</span>
             </span>
-            <span className="text-[10px] font-medium uppercase tracking-wider text-neutral-500">
+            <span className="text-[10px] font-medium uppercase tracking-wider text-neutral-500 whitespace-nowrap">
               {TOOLS_REGISTRY.length} Outils Gratuits &bull; 4 Langues
             </span>
           </div>
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex md:items-center md:gap-7">
+        <nav className="hidden md:flex md:items-center md:gap-3.5 lg:gap-6 shrink-0">
           <Link
             href="/"
-            className="text-sm font-medium text-neutral-700 transition hover:text-blue-600"
+            className="whitespace-nowrap text-sm font-medium text-neutral-700 transition hover:text-blue-600"
           >
             Accueil
           </Link>
 
           {/* Tools Dropdown populated from registry */}
           <div
-            className="relative"
+            className="relative shrink-0"
             onMouseEnter={() => setToolsDropdownOpen(true)}
             onMouseLeave={() => setToolsDropdownOpen(false)}
           >
             <button
               type="button"
-              className="flex items-center gap-1.5 text-sm font-medium text-neutral-700 transition hover:text-blue-600 cursor-pointer"
+              className="flex shrink-0 items-center gap-1.5 whitespace-nowrap text-sm font-medium text-neutral-700 transition hover:text-blue-600 cursor-pointer"
               onClick={() => setToolsDropdownOpen(!toolsDropdownOpen)}
               aria-expanded={toolsDropdownOpen}
             >
-              <span>Tous les Outils ({TOOLS_REGISTRY.length})</span>
+              <span className="whitespace-nowrap">Tous les Outils ({TOOLS_REGISTRY.length})</span>
               <ChevronDown
-                className={`h-4 w-4 transition-transform duration-200 ${
+                className={`h-4 w-4 shrink-0 transition-transform duration-200 ${
                   toolsDropdownOpen ? "rotate-180 text-blue-600" : ""
                 }`}
               />
@@ -137,21 +137,21 @@ export default function Navbar() {
 
           <Link
             href="/about"
-            className="text-sm font-medium text-neutral-700 transition hover:text-blue-600"
+            className="whitespace-nowrap text-sm font-medium text-neutral-700 transition hover:text-blue-600"
           >
             About
           </Link>
 
           <Link
             href="/contact"
-            className="text-sm font-medium text-neutral-700 transition hover:text-blue-600"
+            className="whitespace-nowrap text-sm font-medium text-neutral-700 transition hover:text-blue-600"
           >
             Contact
           </Link>
         </nav>
 
         {/* Right side: Language Hubs Switcher + Support CTA */}
-        <div className="hidden items-center gap-3 md:flex">
+        <div className="hidden shrink-0 items-center gap-2 lg:gap-3 md:flex">
           <div
             className="flex items-center gap-1 rounded-xl border border-neutral-200 bg-neutral-50 p-1 text-xs font-medium text-neutral-700"
             aria-label="Language hubs"
