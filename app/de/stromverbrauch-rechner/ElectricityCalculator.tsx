@@ -389,10 +389,10 @@ export default function ElectricityCalculator() {
                 )}
               </button>
             </div>
-            <div className="mt-3 text-2xl font-black text-white sm:text-3xl">
+            <div translate="no" className="notranslate mt-3 text-2xl font-black text-white sm:text-3xl">
               {formatEuro(costPerDay)}
             </div>
-            <div className="mt-1 text-sm font-semibold text-neutral-400">
+            <div translate="no" className="notranslate mt-1 text-sm font-semibold text-neutral-400">
               {formatKwh(kwhPerDay)}
             </div>
             <p className="mt-3 text-[11px] text-neutral-500">Täglicher Aufwand</p>
@@ -419,10 +419,10 @@ export default function ElectricityCalculator() {
                 )}
               </button>
             </div>
-            <div className="mt-3 text-2xl font-black text-blue-400 sm:text-3xl">
+            <div translate="no" className="notranslate mt-3 text-2xl font-black text-blue-400 sm:text-3xl">
               {formatEuro(costPerMonth)}
             </div>
-            <div className="mt-1 text-sm font-semibold text-blue-200/80">
+            <div translate="no" className="notranslate mt-1 text-sm font-semibold text-blue-200/80">
               {formatKwh(kwhPerMonth)}
             </div>
             <p className="mt-3 text-[11px] text-neutral-500">Monatlicher Abschlag</p>
@@ -452,10 +452,10 @@ export default function ElectricityCalculator() {
                 )}
               </button>
             </div>
-            <div className="mt-3 text-3xl font-black text-emerald-400 sm:text-4xl">
+            <div translate="no" className="notranslate mt-3 text-3xl font-black text-emerald-400 sm:text-4xl">
               {formatEuro(costPerYear)}
             </div>
-            <div className="mt-1 text-base font-bold text-emerald-200">
+            <div translate="no" className="notranslate mt-1 text-base font-bold text-emerald-200">
               {formatKwh(kwhPerYear)}
             </div>
             <p className="mt-3 text-[11px] text-neutral-400">Gesamte Stromrechnung pro Jahr</p>
@@ -464,7 +464,7 @@ export default function ElectricityCalculator() {
 
         {/* Calculation Formula Live Banner */}
         <div className="border-t border-neutral-800 bg-neutral-950 px-6 py-3.5 text-xs text-neutral-400 flex flex-col sm:flex-row items-center justify-between gap-2">
-          <div className="font-mono text-[11px]">
+          <div translate="no" className="notranslate font-mono text-[11px]">
             Berechnung : ({watt} W × {hoursPerDay} h × {daysPerYear} Tage) ÷ 1.000 ={" "}
             <span className="text-white font-bold">{formatKwh(kwhPerYear)}</span> × {priceEuro.toFixed(2)} € ={" "}
             <span className="text-emerald-400 font-bold">{formatEuro(costPerYear)}</span>

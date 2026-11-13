@@ -324,11 +324,11 @@ export default function WorkingDaysCalculator() {
             <CalendarCheck2 className="h-4 w-4 text-blue-400" />
             <span>Fecha Final Estimada ({mode === "add" ? "Vencimiento" : "Inicio"})</span>
           </span>
-          <div className="mt-3 text-2xl font-black capitalize text-white sm:text-4xl tracking-tight">
+          <div translate="no" className="notranslate mt-3 text-2xl font-black capitalize text-white sm:text-4xl tracking-tight">
             {formattedResultDate}
           </div>
           <div className="mt-2 text-base font-semibold text-blue-300">
-            Formato numérico: <strong className="text-white font-mono">{formattedShortDate}</strong>
+            Formato numérico: <strong translate="no" className="notranslate text-white font-mono">{formattedShortDate}</strong>
           </div>
         </div>
 
@@ -340,7 +340,7 @@ export default function WorkingDaysCalculator() {
               <CalendarCheck2 className="h-3.5 w-3.5" />
               <span>Días Hábiles Efectivos</span>
             </div>
-            <div className="mt-2 text-2xl font-black text-white sm:text-3xl">
+            <div translate="no" className="notranslate mt-2 text-2xl font-black text-white sm:text-3xl">
               {businessDays} días
             </div>
             <p className="mt-2 text-[11px] text-neutral-400">
@@ -354,7 +354,7 @@ export default function WorkingDaysCalculator() {
               <CalendarX2 className="h-3.5 w-3.5" />
               <span>Fines de Semana Omitidos</span>
             </div>
-            <div className="mt-2 text-2xl font-black text-amber-400 sm:text-3xl">
+            <div translate="no" className="notranslate mt-2 text-2xl font-black text-amber-400 sm:text-3xl">
               {skippedWeekends} días
             </div>
             <p className="mt-2 text-[11px] text-neutral-400">
@@ -370,7 +370,7 @@ export default function WorkingDaysCalculator() {
               <CalendarDays className="h-3.5 w-3.5" />
               <span>Total Días Naturales</span>
             </div>
-            <div className="mt-2 text-2xl font-black text-white sm:text-3xl">
+            <div translate="no" className="notranslate mt-2 text-2xl font-black text-white sm:text-3xl">
               {totalCalendarDays} días
             </div>
             <p className="mt-2 text-[11px] text-neutral-400">
@@ -381,7 +381,7 @@ export default function WorkingDaysCalculator() {
 
         {/* Live Calculation Summary Banner */}
         <div className="border-t border-neutral-800 bg-neutral-950 px-6 py-3.5 text-xs text-neutral-400 flex flex-col sm:flex-row items-center justify-between gap-2">
-          <div className="text-[11px]">
+          <div translate="no" className="notranslate text-[11px]">
             Cómputo: {startDateStr} {mode === "add" ? "+" : "-"} {businessDays} días hábiles ={" "}
             <strong className="text-white">{formattedShortDate}</strong> ({totalCalendarDays} días naturales corridos)
           </div>

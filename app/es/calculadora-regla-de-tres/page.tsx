@@ -79,7 +79,7 @@ const FAQ_RULE_THREE_DATA = [
 
 export default function RuleOfThreePage() {
   return (
-    <div className="py-8 sm:py-12" lang="es">
+    <div className="pt-3 pb-8 sm:py-10" lang="es">
       <SeoSchema
         tool={TOOL}
         faqs={FAQ_RULE_THREE_DATA}
@@ -90,13 +90,13 @@ export default function RuleOfThreePage() {
 
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         {/* Breadcrumb Navigation */}
-        <nav aria-label="Miga de pan" className="mb-6 flex items-center gap-2 text-xs text-neutral-500">
+        <nav aria-label="Miga de pan" className="mb-3 sm:mb-6 flex items-center gap-2 text-xs text-neutral-500">
           <Link href="/" className="hover:text-neutral-900 transition">
             Inicio
           </Link>
           <ChevronRight className="h-3 w-3" />
           <Link href="/es" className="hover:text-neutral-900 transition">
-            Calculadoras en Español (ES)
+            Calculadoras en Español (<span translate="no" className="notranslate font-bold">ES</span>)
           </Link>
           <ChevronRight className="h-3 w-3" />
           <span className="font-semibold text-neutral-900" aria-current="page">
@@ -105,27 +105,27 @@ export default function RuleOfThreePage() {
         </nav>
 
         {/* Page Header */}
-        <header className="mb-6 text-center">
-          <div className="inline-flex items-center gap-1.5 rounded-full border border-blue-200 bg-blue-50 px-3.5 py-1 text-xs font-semibold text-blue-700 shadow-2xs mb-3">
+        <header className="mb-4 sm:mb-6 text-center">
+          <div className="inline-flex items-center gap-1.5 rounded-full border border-blue-200 bg-blue-50 px-3.5 py-1 text-xs font-semibold text-blue-700 shadow-2xs mb-2 sm:mb-3">
             <Sparkles className="h-3.5 w-3.5 text-blue-600" />
             <span>Resolución matemática inmediata con explicación paso a paso</span>
           </div>
 
-          <h1 className="text-3xl font-black tracking-tight text-neutral-900 sm:text-4xl md:text-5xl">
+          <h1 className="text-2xl font-black tracking-tight text-neutral-900 sm:text-4xl md:text-5xl">
             Calculadora de Regla de Tres Online
           </h1>
-          <p className="mx-auto mt-3 max-w-2xl text-sm sm:text-base text-neutral-600">
+          <p className="mx-auto mt-1.5 sm:mt-3 max-w-2xl text-xs sm:text-base text-neutral-600 line-clamp-2 sm:line-clamp-none">
             Resuelva problemas de proporcionalidad directa e inversa de forma instantánea. 
             Introduzca los tres valores conocidos para obtener el resultado X y visualizar la fórmula detallada.
           </p>
         </header>
 
-        <div className="mb-8">
+        <div className="mb-4 sm:mb-8">
           <AdSlot position="top" adSlot="banner-top-regla-de-tres-es" />
         </div>
 
         {/* 2. THE RULE OF THREE CALCULATOR COMPONENT */}
-        <section aria-label="Herramienta interactiva de cálculo de regla de tres" className="mb-10">
+        <section aria-label="Herramienta interactiva de cálculo de regla de tres" className="mb-6 sm:mb-10">
           <Suspense fallback={<div className="h-96 rounded-3xl bg-neutral-100 animate-pulse" />}>
             <RuleOfThreeCalculator />
           </Suspense>

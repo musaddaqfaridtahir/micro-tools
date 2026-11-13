@@ -30,7 +30,7 @@ export default function HomePage() {
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50/80 px-4 py-1.5 text-xs font-semibold text-blue-700 shadow-xs">
             <Sparkles className="h-4 w-4" />
             <span>
-              Suite Multilingue de {TOOLS_REGISTRY.length} Micro-Outils Gratuits (FR • DE • ES • AR)
+              Suite Multilingue de {TOOLS_REGISTRY.length} Micro-Outils Gratuits (<span translate="no" className="notranslate">FR • DE • ES • AR</span>)
             </span>
           </div>
 
@@ -92,14 +92,17 @@ export default function HomePage() {
                 >
                   <div>
                     <div className="flex items-center justify-between">
-                      <span className="text-2xl" aria-hidden="true">
-                        {hub.flag}
-                      </span>
-                      <span className="rounded-full bg-neutral-100 px-2.5 py-0.5 text-[11px] font-bold text-neutral-700">
+                      <span
+                        translate="no"
+                        className="notranslate rounded-lg border border-neutral-200 bg-neutral-50 px-2.5 py-1 text-xs font-black tracking-wider text-neutral-800 shadow-2xs"
+                      >
                         {hub.upperCode}
                       </span>
                     </div>
-                    <h3 className="mt-3 text-base font-bold text-neutral-900 group-hover:text-blue-700">
+                    <h3
+                      translate="no"
+                      className="notranslate mt-3 text-base font-bold text-neutral-900 group-hover:text-blue-700"
+                    >
                       {hub.nativeName}
                     </h3>
                     <p className="mt-1 text-xs leading-relaxed text-neutral-600">

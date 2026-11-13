@@ -31,12 +31,12 @@ export default function Footer() {
               <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-600 text-white shadow-sm">
                 <Wrench className="h-5 w-5" />
               </div>
-              <span className="text-xl font-bold tracking-tight">
+              <span translate="no" className="notranslate text-xl font-bold tracking-tight">
                 Micro<span className="text-blue-400">Tools</span>
               </span>
             </Link>
             <p className="max-w-sm text-xs sm:text-sm leading-relaxed text-neutral-400">
-              Suite multilingue de {TOOLS_REGISTRY.length} calculateurs et utilitaires web gratuits, rapides et confidentiels en français, allemand, espagnol et arabe.
+              Free, fast, and privacy-first multi-language utility tools and online calculators covering French, German, Spanish, and Arabic.
             </p>
             <div className="flex flex-wrap items-center gap-2 pt-1">
               {LANGUAGE_ORDER.map((code) => {
@@ -45,9 +45,15 @@ export default function Footer() {
                   <Link
                     key={code}
                     href={hub.slug}
-                    className="rounded-lg border border-neutral-800 bg-neutral-800/70 px-2.5 py-1 text-[11px] font-semibold text-neutral-300 transition hover:border-blue-500/50 hover:text-white"
+                    className="inline-flex items-center gap-1.5 rounded-lg border border-neutral-800 bg-neutral-800/70 px-2.5 py-1 text-[11px] font-semibold text-neutral-300 transition hover:border-blue-500/50 hover:text-white"
                   >
-                    {hub.flag} {hub.nativeName}
+                    <span
+                      translate="no"
+                      className="notranslate rounded bg-neutral-700/60 px-1 py-0.5 text-[9px] font-bold text-neutral-300"
+                    >
+                      {hub.upperCode}
+                    </span>
+                    <span translate="no" className="notranslate">{hub.nativeName}</span>
                   </Link>
                 );
               })}
@@ -68,7 +74,7 @@ export default function Footer() {
           {/* Column 2: Quick Tools populated dynamically from TOOLS_REGISTRY */}
           <div className="lg:col-span-5">
             <h3 className="text-xs font-bold uppercase tracking-wider text-white">
-              Nos Calculateurs Opérationnels ({TOOLS_REGISTRY.length})
+              Our Calculators ({TOOLS_REGISTRY.length})
             </h3>
             <ul className="mt-4 grid grid-cols-1 gap-2.5 sm:grid-cols-2 text-xs text-neutral-400">
               {TOOLS_REGISTRY.map((tool) => {
@@ -82,7 +88,8 @@ export default function Footer() {
                       className="inline-flex items-center gap-2 text-neutral-300 transition hover:text-white"
                     >
                       <span
-                        className={`shrink-0 rounded px-1.5 py-0.5 text-[10px] font-bold ${BADGE_CLASSES[tool.accent]}`}
+                        translate="no"
+                        className={`notranslate shrink-0 rounded px-1.5 py-0.5 text-[10px] font-bold ${BADGE_CLASSES[tool.accent]}`}
                       >
                         {hub.upperCode}
                       </span>
@@ -97,7 +104,7 @@ export default function Footer() {
           {/* Column 3: Legal & Trust Info */}
           <div className="lg:col-span-3">
             <h3 className="text-xs font-bold uppercase tracking-wider text-white">
-              Informations & Conformité
+              Legal &amp; Trust
             </h3>
             <ul className="mt-4 space-y-2.5 text-xs text-neutral-400">
               <li>
@@ -105,7 +112,7 @@ export default function Footer() {
                   href="/about"
                   className="inline-block transition hover:text-white"
                 >
-                  About Us (À propos)
+                  About Us
                 </Link>
               </li>
               <li>
@@ -113,7 +120,7 @@ export default function Footer() {
                   href="/contact"
                   className="inline-block transition hover:text-white"
                 >
-                  Contact Us & Support
+                  Contact Us &amp; Support
                 </Link>
               </li>
               <li>
@@ -121,7 +128,7 @@ export default function Footer() {
                   href="/privacy-policy"
                   className="inline-block font-medium text-neutral-300 transition hover:text-white"
                 >
-                  Privacy Policy (Confidentialité)
+                  Privacy Policy
                 </Link>
               </li>
               <li>
@@ -129,20 +136,20 @@ export default function Footer() {
                   href="/terms"
                   className="inline-block transition hover:text-white"
                 >
-                  Terms & Conditions (CGU)
+                  Terms &amp; Conditions
                 </Link>
               </li>
             </ul>
 
             <div className="mt-4 rounded-xl border border-neutral-800 bg-neutral-800/40 p-3 text-[11px] text-neutral-400">
-              Conforme aux standards Google AdSense &amp; RGPD. Calculs 100 % côté client sans conservation serveur.
+              Compliant with Google AdSense &amp; GDPR standards. 100% client-side calculations with zero server data retention.
             </div>
           </div>
         </div>
 
         {/* Bottom Bar: Copyright on Left + Developer Badge on Right */}
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-neutral-800 pt-6 text-xs text-neutral-400 sm:flex-row">
-          <p>© {currentYear} MicroTools. All rights reserved.</p>
+          <p>© {currentYear} <span translate="no" className="notranslate">MicroTools</span>. All rights reserved.</p>
 
           <div className="flex items-center gap-1.5">
             <span className="text-neutral-500">Engineered by</span>
@@ -150,7 +157,8 @@ export default function Footer() {
               href="https://musaddaq.tech"
               target="_blank"
               rel="noopener"
-              className="inline-flex items-center gap-1 rounded-lg border border-neutral-800 bg-neutral-800/80 px-2.5 py-1 font-semibold text-blue-400 shadow-2xs transition hover:border-blue-500/50 hover:bg-neutral-800 hover:text-blue-300"
+              translate="no"
+              className="notranslate inline-flex items-center gap-1 rounded-lg border border-neutral-800 bg-neutral-800/80 px-2.5 py-1 font-semibold text-blue-400 shadow-2xs transition hover:border-blue-500/50 hover:bg-neutral-800 hover:text-blue-300"
             >
               <span>musaddaq.tech</span>
               <ArrowUpRight className="h-3 w-3" />

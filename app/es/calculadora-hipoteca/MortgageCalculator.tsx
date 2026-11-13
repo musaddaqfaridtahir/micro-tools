@@ -357,7 +357,7 @@ export default function MortgageCalculator() {
                 <span className="text-xs font-semibold text-neutral-500">
                   Cuota mensual estimada
                 </span>
-                <div className="mt-0.5 text-3xl font-black tracking-tight text-emerald-700">
+                <div translate="no" className="notranslate mt-0.5 text-3xl font-black tracking-tight text-emerald-700">
                   {formatMoney(monthlyPayment)}
                 </div>
               </div>
@@ -386,7 +386,7 @@ export default function MortgageCalculator() {
                 <span className="text-xs font-semibold text-neutral-500">
                   Total intereses
                 </span>
-                <div className="mt-0.5 text-xl font-extrabold text-amber-700">
+                <div translate="no" className="notranslate mt-0.5 text-xl font-extrabold text-amber-700">
                   {formatMoney(totalInterest)}
                 </div>
               </div>
@@ -394,7 +394,7 @@ export default function MortgageCalculator() {
                 <span className="text-xs font-semibold text-neutral-500">
                   Total a pagar (Capital + Intereses)
                 </span>
-                <div className="mt-0.5 text-xl font-extrabold text-neutral-900">
+                <div translate="no" className="notranslate mt-0.5 text-xl font-extrabold text-neutral-900">
                   {formatMoney(totalToPay)}
                 </div>
               </div>

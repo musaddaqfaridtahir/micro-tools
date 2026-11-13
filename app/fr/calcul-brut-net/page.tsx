@@ -71,7 +71,7 @@ const FAQ_SALARY_DATA = [
 
 export default function CalculBrutNetPage() {
   return (
-    <div className="py-8 sm:py-12" lang="fr">
+    <div className="pt-3 pb-8 sm:py-10" lang="fr">
       <SeoSchema
         tool={TOOL}
         faqs={FAQ_SALARY_DATA}
@@ -81,13 +81,13 @@ export default function CalculBrutNetPage() {
       />
 
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-        <nav aria-label="Fil d'Ariane" className="mb-6 flex items-center gap-2 text-xs text-neutral-500">
+        <nav aria-label="Fil d'Ariane" className="mb-3 sm:mb-6 flex items-center gap-2 text-xs text-neutral-500">
           <Link href="/" className="hover:text-neutral-900 transition">
             Accueil
           </Link>
           <ChevronRight className="h-3 w-3" />
           <Link href="/fr" className="hover:text-neutral-900 transition">
-            Outils Français (FR)
+            Outils Français (<span translate="no" className="notranslate font-bold">FR</span>)
           </Link>
           <ChevronRight className="h-3 w-3" />
           <span className="font-semibold text-neutral-900" aria-current="page">
@@ -95,26 +95,26 @@ export default function CalculBrutNetPage() {
           </span>
         </nav>
 
-        <header className="mb-6 text-center">
-          <div className="mb-3 inline-flex items-center gap-1.5 rounded-full border border-indigo-200 bg-indigo-50 px-3.5 py-1 text-xs font-semibold text-indigo-700 shadow-2xs">
+        <header className="mb-4 sm:mb-6 text-center">
+          <div className="mb-2 sm:mb-3 inline-flex items-center gap-1.5 rounded-full border border-indigo-200 bg-indigo-50 px-3.5 py-1 text-xs font-semibold text-indigo-700 shadow-2xs">
             <Briefcase className="h-3.5 w-3.5" />
             <span>Barèmes sociaux et cotisations France 2026</span>
           </div>
 
-          <h1 className="text-3xl font-black tracking-tight text-neutral-900 sm:text-4xl md:text-5xl">
+          <h1 className="text-2xl font-black tracking-tight text-neutral-900 sm:text-4xl md:text-5xl">
             Calculateur Salaire Brut en Net
           </h1>
-          <p className="mx-auto mt-3 max-w-2xl text-sm sm:text-base text-neutral-600">
+          <p className="mx-auto mt-1.5 sm:mt-3 max-w-2xl text-xs sm:text-base text-neutral-600 line-clamp-2 sm:line-clamp-none">
             Convertissez instantanément votre rémunération <strong>Brute en Net</strong> (ou Net en Brut) en mode{" "}
             <strong>Mensuel ou Annuel</strong> selon votre statut (Non-Cadre, Cadre, Fonction Publique).
           </p>
         </header>
 
-        <div className="mb-8">
+        <div className="mb-4 sm:mb-8">
           <AdSlot position="top" adSlot="banner-top-brut-net-fr" />
         </div>
 
-        <section aria-label="Simulateur interactif de salaire brut en net" className="mb-10">
+        <section aria-label="Simulateur interactif de salaire brut en net" className="mb-6 sm:mb-10">
           <SalaryCalculator />
         </section>
 

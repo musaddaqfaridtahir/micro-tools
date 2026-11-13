@@ -310,7 +310,7 @@ export default function SpanishVatCalculator() {
                 {copiedKey === "base" ? <Check className="h-3.5 w-3.5 text-emerald-400" /> : <Copy className="h-3.5 w-3.5" />}
               </button>
             </div>
-            <div className="mt-2 text-2xl sm:text-3xl font-black text-white">
+            <div translate="no" className="notranslate mt-2 text-2xl sm:text-3xl font-black text-white">
               {fmtEuro(baseImponible)}
             </div>
           </div>
@@ -329,7 +329,7 @@ export default function SpanishVatCalculator() {
                 {copiedKey === "iva" ? <Check className="h-3.5 w-3.5 text-emerald-400" /> : <Copy className="h-3.5 w-3.5" />}
               </button>
             </div>
-            <div className="mt-2 text-2xl sm:text-3xl font-black text-blue-400">
+            <div translate="no" className="notranslate mt-2 text-2xl sm:text-3xl font-black text-blue-400">
               {fmtEuro(cuotaIva)}
             </div>
           </div>
@@ -348,7 +348,7 @@ export default function SpanishVatCalculator() {
                 {copiedKey === "total" ? <Check className="h-3.5 w-3.5 text-emerald-400" /> : <Copy className="h-3.5 w-3.5" />}
               </button>
             </div>
-            <div className="mt-2 text-2xl sm:text-3xl font-black text-emerald-400">
+            <div translate="no" className="notranslate mt-2 text-2xl sm:text-3xl font-black text-emerald-400">
               {fmtEuro(totalConIva)}
             </div>
           </div>

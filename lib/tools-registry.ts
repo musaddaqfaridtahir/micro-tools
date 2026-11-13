@@ -44,7 +44,6 @@ export interface LanguageHubMeta {
   code: LanguageCode;
   upperCode: string;
   slug: string;
-  flag: string;
   nativeName: string;
   locale: string;
   dir: "ltr" | "rtl";
@@ -61,7 +60,6 @@ export const LANGUAGE_HUBS: Record<LanguageCode, LanguageHubMeta> = {
     code: "fr",
     upperCode: "FR",
     slug: "/fr",
-    flag: "🇫🇷",
     nativeName: "Français",
     locale: "fr_FR",
     dir: "ltr",
@@ -78,7 +76,6 @@ export const LANGUAGE_HUBS: Record<LanguageCode, LanguageHubMeta> = {
     code: "de",
     upperCode: "DE",
     slug: "/de",
-    flag: "🇩🇪",
     nativeName: "Deutsch",
     locale: "de_DE",
     dir: "ltr",
@@ -95,7 +92,6 @@ export const LANGUAGE_HUBS: Record<LanguageCode, LanguageHubMeta> = {
     code: "es",
     upperCode: "ES",
     slug: "/es",
-    flag: "🇪🇸",
     nativeName: "Español",
     locale: "es_ES",
     dir: "ltr",
@@ -112,7 +108,6 @@ export const LANGUAGE_HUBS: Record<LanguageCode, LanguageHubMeta> = {
     code: "ar",
     upperCode: "AR",
     slug: "/ar",
-    flag: "🇸🇦",
     nativeName: "العربية",
     locale: "ar_SA",
     dir: "rtl",

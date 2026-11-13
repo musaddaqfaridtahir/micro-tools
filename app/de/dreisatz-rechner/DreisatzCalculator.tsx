@@ -272,7 +272,7 @@ export default function DreisatzCalculator() {
               Ergebnis X ({unitB})
             </span>
             <div className="flex items-center justify-between rounded-2xl border-2 border-violet-500 bg-neutral-900 px-4 py-3 text-white shadow-md">
-              <span className="text-2xl font-black text-emerald-400">
+              <span translate="no" className="notranslate text-2xl font-black text-emerald-400">
                 {divZeroError
                   ? "Fehler (÷ 0)"
                   : resultX !== null
@@ -322,7 +322,7 @@ export default function DreisatzCalculator() {
               <span className="text-[11px] font-bold uppercase text-violet-300">
                 1. Satz: Ausgangslage
               </span>
-              <div className="mt-2 font-mono text-sm font-bold text-white">
+              <div translate="no" className="notranslate mt-2 font-mono text-sm font-bold text-white">
                 {fmt(numA)} {unitA} ➔ {fmt(numB)} {unitB}
               </div>
             </div>
@@ -331,10 +331,10 @@ export default function DreisatzCalculator() {
               <span className="text-[11px] font-bold uppercase text-violet-300">
                 2. Satz: Auf 1 Einheit umrechnen
               </span>
-              <div className="mt-2 font-mono text-sm font-bold text-white">
+              <div translate="no" className="notranslate mt-2 font-mono text-sm font-bold text-white">
                 1 {unitA} ➔ {fmt(stepOneVal)} {unitB}
               </div>
-              <div className="mt-1 text-[11px] text-neutral-400 font-mono">
+              <div translate="no" className="notranslate mt-1 text-[11px] text-neutral-400 font-mono">
                 {mode === "proportional"
                   ? `(${fmt(numB)} ÷ ${fmt(numA)})`
                   : `(${fmt(numA)} × ${fmt(numB)})`}
@@ -346,10 +346,10 @@ export default function DreisatzCalculator() {
                 <CheckCircle2 className="h-3.5 w-3.5" />
                 3. Satz: Zielwert ermitteln
               </span>
-              <div className="mt-2 font-mono text-sm font-bold text-emerald-300">
+              <div translate="no" className="notranslate mt-2 font-mono text-sm font-bold text-emerald-300">
                 {fmt(numC)} {unitA} ➔ {fmt(resultX)} {unitB}
               </div>
-              <div className="mt-1 text-[11px] text-emerald-200/80 font-mono">
+              <div translate="no" className="notranslate mt-1 text-[11px] text-emerald-200/80 font-mono">
                 {mode === "proportional"
                   ? `(${fmt(stepOneVal)} × ${fmt(numC)})`
                   : `(${fmt(stepOneVal)} ÷ ${fmt(numC)})`}

@@ -71,7 +71,7 @@ const FAQ_AR_PCT = [
 
 export default function ArabicPercentagePage() {
   return (
-    <div className="py-8 sm:py-12" lang="ar" dir="rtl">
+    <div className="pt-3 pb-8 sm:py-10" lang="ar" dir="rtl">
       <SeoSchema
         tool={TOOL}
         faqs={FAQ_AR_PCT}
@@ -81,13 +81,13 @@ export default function ArabicPercentagePage() {
       />
 
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-        <nav aria-label="مسار التنقل" className="mb-6 flex items-center gap-2 text-xs text-neutral-500">
+        <nav aria-label="مسار التنقل" className="mb-3 sm:mb-6 flex items-center gap-2 text-xs text-neutral-500">
           <Link href="/" className="hover:text-neutral-900 transition">
             الرئيسية
           </Link>
           <ChevronLeft className="h-3 w-3" />
           <Link href="/ar" className="hover:text-neutral-900 transition">
-            الأدوات العربية (AR)
+            الأدوات العربية (<span translate="no" className="notranslate font-bold">AR</span>)
           </Link>
           <ChevronLeft className="h-3 w-3" />
           <span className="font-semibold text-neutral-900" aria-current="page">
@@ -95,25 +95,25 @@ export default function ArabicPercentagePage() {
           </span>
         </nav>
 
-        <header className="mb-6 text-center">
-          <div className="mb-3 inline-flex items-center gap-1.5 rounded-full border border-violet-200 bg-violet-50 px-3.5 py-1 text-xs font-semibold text-violet-700 shadow-2xs">
+        <header className="mb-4 sm:mb-6 text-center">
+          <div className="mb-2 sm:mb-3 inline-flex items-center gap-1.5 rounded-full border border-violet-200 bg-violet-50 px-3.5 py-1 text-xs font-semibold text-violet-700 shadow-2xs">
             <Percent className="h-3.5 w-3.5" />
             <span>3 أوضاع شاملة: الخصومات، النسبة من مبلغ، ونسبة التغيّر</span>
           </div>
 
-          <h1 className="text-3xl font-black tracking-tight text-neutral-900 sm:text-4xl md:text-5xl">
+          <h1 className="text-2xl font-black tracking-tight text-neutral-900 sm:text-4xl md:text-5xl">
             حاسبة النسبة المئوية والخصم
           </h1>
-          <p className="mx-auto mt-3 max-w-2xl text-sm sm:text-base text-neutral-600">
+          <p className="mx-auto mt-1.5 sm:mt-3 max-w-2xl text-xs sm:text-base text-neutral-600 line-clamp-2 sm:line-clamp-none">
             احسب فوراً <strong>السعر بعد الخصم ومبلغ التوفير</strong> أثناء التسوق، أو استخرج <strong>نسبة مئوية من أي مبلغ</strong>، أو احسب <strong>نسبة الزيادة والنقصان</strong> بدقة متناهية.
           </p>
         </header>
 
-        <div className="mb-8">
+        <div className="mb-4 sm:mb-8">
           <AdSlot position="top" adSlot="banner-top-percentage-ar" />
         </div>
 
-        <section aria-label="حاسبة النسبة المئوية والخصم التفاعلية" className="mb-10">
+        <section aria-label="حاسبة النسبة المئوية والخصم التفاعلية" className="mb-6 sm:mb-10">
           <ArabicPercentageCalculator />
         </section>
 

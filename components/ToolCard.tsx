@@ -86,8 +86,11 @@ export default function ToolCard({ tool }: ToolCardProps) {
             </div>
 
             <div className="flex items-center gap-1.5 flex-wrap justify-end">
-              <span className="rounded-md border border-neutral-200 bg-white px-2 py-0.5 text-[10px] font-bold text-neutral-700">
-                {hub.upperCode} {hub.flag}
+              <span
+                translate="no"
+                className="notranslate rounded-md border border-neutral-200 bg-white px-2 py-0.5 text-[10px] font-bold text-neutral-800 tracking-wider shadow-2xs"
+              >
+                {hub.upperCode}
               </span>
               <span className="rounded-full border border-emerald-300 bg-emerald-100/90 px-2.5 py-0.5 text-[11px] font-semibold text-emerald-800">
                 {tool.nativeBadgeText}

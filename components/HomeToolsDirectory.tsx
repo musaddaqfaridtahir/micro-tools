@@ -122,10 +122,10 @@ export default function HomeToolsDirectory() {
                       : "bg-white text-neutral-700 border border-neutral-200 hover:border-blue-300 hover:text-blue-700"
                   }`}
                 >
-                  <span>{hub.flag}</span>
-                  <span>
-                    {hub.upperCode} ({count})
+                  <span translate="no" className="notranslate font-bold">
+                    {hub.upperCode}
                   </span>
+                  <span>({count})</span>
                 </button>
               );
             })}
@@ -146,7 +146,8 @@ export default function HomeToolsDirectory() {
                 <Link
                   key={code}
                   href={LANGUAGE_HUBS[code].slug}
-                  className="rounded-md bg-white px-2 py-0.5 font-semibold text-neutral-700 border border-neutral-200 hover:border-blue-300 hover:text-blue-700 transition"
+                  translate="no"
+                  className="notranslate rounded-md bg-white px-2 py-0.5 font-semibold text-neutral-700 border border-neutral-200 hover:border-blue-300 hover:text-blue-700 transition"
                 >
                   /{code}
                 </Link>

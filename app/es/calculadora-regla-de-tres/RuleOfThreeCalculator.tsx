@@ -279,7 +279,7 @@ export default function RuleOfThreeCalculator() {
               <div className="flex items-center justify-between rounded-2xl border-2 border-emerald-500 bg-emerald-50/80 py-3 px-4 shadow-sm">
                 <div className="flex items-center gap-2">
                   <span className="text-sm font-bold text-emerald-800">X =</span>
-                  <span className="text-2xl font-black text-emerald-900 sm:text-3xl">
+                  <span translate="no" className="notranslate text-2xl font-black text-emerald-900 sm:text-3xl">
                     {hasDivisionByZero ? (
                       <span className="text-sm text-red-600 font-semibold">
                         División entre 0 no válida
@@ -315,7 +315,7 @@ export default function RuleOfThreeCalculator() {
               Resolución Paso a Paso de la Fórmula
             </h3>
           </div>
-          <span className="text-[11px] text-blue-400 font-mono">
+          <span translate="no" className="notranslate text-[11px] text-blue-400 font-mono">
             {mode === "direct" ? "Fórmula: X = (B × C) / A" : "Fórmula: X = (A × B) / C"}
           </span>
         </div>
@@ -328,7 +328,7 @@ export default function RuleOfThreeCalculator() {
                 <span className="text-xs font-bold text-neutral-400 uppercase tracking-wider">
                   Paso 1: Multiplicar
                 </span>
-                <div className="mt-1 font-mono text-sm text-white">
+                <div translate="no" className="notranslate mt-1 font-mono text-sm text-white">
                   {mode === "direct" ? (
                     <>
                       {numB} × {numC} ={" "}
@@ -351,7 +351,7 @@ export default function RuleOfThreeCalculator() {
                 <span className="text-xs font-bold text-neutral-400 uppercase tracking-wider">
                   Paso 2: Dividir
                 </span>
-                <div className="mt-1 font-mono text-sm text-white">
+                <div translate="no" className="notranslate mt-1 font-mono text-sm text-white">
                   {mode === "direct" ? (
                     <>
                       {formatNumber(numB * numC)} ÷ {numA} ={" "}
@@ -371,7 +371,7 @@ export default function RuleOfThreeCalculator() {
             </div>
 
             {/* Full equation banner */}
-            <div className="rounded-xl bg-neutral-950 p-4 font-mono text-xs sm:text-sm text-neutral-300 flex flex-wrap items-center justify-between gap-2 border border-neutral-800">
+            <div translate="no" className="notranslate rounded-xl bg-neutral-950 p-4 font-mono text-xs sm:text-sm text-neutral-300 flex flex-wrap items-center justify-between gap-2 border border-neutral-800">
               <div>
                 X = (
                 {mode === "direct" ? (

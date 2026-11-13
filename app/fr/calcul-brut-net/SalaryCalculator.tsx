@@ -286,7 +286,7 @@ export default function SalaryCalculator() {
               placeholder="Ex: 2500"
               className="block w-full rounded-2xl border border-neutral-300 bg-neutral-50/50 py-3.5 pl-11 pr-14 text-lg font-bold text-neutral-900 focus:border-indigo-600 focus:bg-white focus:outline-none focus:ring-4 focus:ring-indigo-500/10 transition"
             />
-            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-4 text-xs font-semibold text-neutral-400">
+            <div translate="no" className="notranslate pointer-events-none absolute inset-y-0 right-0 flex items-center pr-4 text-xs font-semibold text-neutral-400">
               {period === "monthly" ? "€ / mois" : "€ / an"}
             </div>
           </div>
@@ -432,15 +432,15 @@ export default function SalaryCalculator() {
             <span className="text-xs font-semibold text-neutral-400">
               Salaire Net Avant Impôt
             </span>
-            <div className="mt-2 text-2xl sm:text-3xl font-black text-emerald-400">
+            <div translate="no" className="notranslate mt-2 text-2xl sm:text-3xl font-black text-emerald-400">
               {formatEuro(monthlyNetBeforeTax)}
               <span className="text-xs font-medium text-neutral-400"> /mois</span>
             </div>
             <div className="mt-1 text-xs text-neutral-400">
-              Soit <strong>{formatEuro(annualNetBeforeTax)}</strong> / an
+              Soit <strong translate="no" className="notranslate">{formatEuro(annualNetBeforeTax)}</strong> / an
             </div>
             <div className="mt-3 text-[11px] text-neutral-500">
-              Taux horaire net estimé : {formatEuro(hourlyNet)}/h
+              Taux horaire net estimé : <span translate="no" className="notranslate">{formatEuro(hourlyNet)}/h</span>
             </div>
           </div>
 
@@ -449,15 +449,15 @@ export default function SalaryCalculator() {
             <span className="text-xs font-semibold text-indigo-300">
               Salaire Net Payé (Après Impôt {pasRate}%)
             </span>
-            <div className="mt-2 text-2xl sm:text-3xl font-black text-white">
+            <div translate="no" className="notranslate mt-2 text-2xl sm:text-3xl font-black text-white">
               {formatEuro(monthlyNetAfterTax)}
               <span className="text-xs font-medium text-neutral-400"> /mois</span>
             </div>
             <div className="mt-1 text-xs text-neutral-300">
-              Soit <strong>{formatEuro(annualNetAfterTax)}</strong> / an
+              Soit <strong translate="no" className="notranslate">{formatEuro(annualNetAfterTax)}</strong> / an
             </div>
             <div className="mt-3 text-[11px] text-indigo-300">
-              Impôt prélevé : {formatEuro(monthlyImpot)}/mois
+              Impôt prélevé : <span translate="no" className="notranslate">{formatEuro(monthlyImpot)}/mois</span>
             </div>
           </div>
 
@@ -466,7 +466,7 @@ export default function SalaryCalculator() {
             <span className="text-xs font-semibold text-neutral-400">
               Salaire Brut &amp; Cotisations ({selectedStatus.chargeRate}%)
             </span>
-            <div className="mt-2 text-2xl sm:text-3xl font-black text-blue-400">
+            <div translate="no" className="notranslate mt-2 text-2xl sm:text-3xl font-black text-blue-400">
               {formatEuro(monthlyBrut)}
               <span className="text-xs font-medium text-neutral-400"> /mois</span>
             </div>

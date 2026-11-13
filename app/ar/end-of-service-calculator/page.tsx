@@ -71,7 +71,7 @@ const FAQ_EOS = [
 
 export default function EndOfServicePage() {
   return (
-    <div className="py-8 sm:py-12" lang="ar" dir="rtl">
+    <div className="pt-3 pb-8 sm:py-10" lang="ar" dir="rtl">
       <SeoSchema
         tool={TOOL}
         faqs={FAQ_EOS}
@@ -81,13 +81,13 @@ export default function EndOfServicePage() {
       />
 
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-        <nav aria-label="مسار التنقل" className="mb-6 flex items-center gap-2 text-xs text-neutral-500">
+        <nav aria-label="مسار التنقل" className="mb-3 sm:mb-6 flex items-center gap-2 text-xs text-neutral-500">
           <Link href="/" className="hover:text-neutral-900 transition">
             الرئيسية
           </Link>
           <ChevronLeft className="h-3 w-3" />
           <Link href="/ar" className="hover:text-neutral-900 transition">
-            الأدوات العربية (AR)
+            الأدوات العربية (<span translate="no" className="notranslate font-bold">AR</span>)
           </Link>
           <ChevronLeft className="h-3 w-3" />
           <span className="font-semibold text-neutral-900" aria-current="page">
@@ -95,25 +95,25 @@ export default function EndOfServicePage() {
           </span>
         </nav>
 
-        <header className="mb-6 text-center">
-          <div className="mb-3 inline-flex items-center gap-1.5 rounded-full border border-amber-200 bg-amber-50 px-3.5 py-1 text-xs font-semibold text-amber-800 shadow-2xs">
+        <header className="mb-4 sm:mb-6 text-center">
+          <div className="mb-2 sm:mb-3 inline-flex items-center gap-1.5 rounded-full border border-amber-200 bg-amber-50 px-3.5 py-1 text-xs font-semibold text-amber-800 shadow-2xs">
             <Briefcase className="h-3.5 w-3.5" />
             <span>متوافقة مع المادتين 84 و 85 من نظام العمل السعودي 2026</span>
           </div>
 
-          <h1 className="text-3xl font-black tracking-tight text-neutral-900 sm:text-4xl md:text-5xl">
+          <h1 className="text-2xl font-black tracking-tight text-neutral-900 sm:text-4xl md:text-5xl">
             حاسبة مكافأة نهاية الخدمة
           </h1>
-          <p className="mx-auto mt-3 max-w-2xl text-sm sm:text-base text-neutral-600">
+          <p className="mx-auto mt-1.5 sm:mt-3 max-w-2xl text-xs sm:text-base text-neutral-600 line-clamp-2 sm:line-clamp-none">
             احسب <strong>مستحقات نهاية الخدمة</strong> بدقة وفق نظام العمل السعودي بناءً على نوع العقد، سبب ترك العمل (انتهاء عقد، استقالة، فصل)، الراتب الأخير، وسنوات وأشهر الخدمة.
           </p>
         </header>
 
-        <div className="mb-8">
+        <div className="mb-4 sm:mb-8">
           <AdSlot position="top" adSlot="banner-top-eos-ar" />
         </div>
 
-        <section aria-label="حاسبة مكافأة نهاية الخدمة التفاعلية" className="mb-10">
+        <section aria-label="حاسبة مكافأة نهاية الخدمة التفاعلية" className="mb-6 sm:mb-10">
           <EndOfServiceCalculator />
         </section>
 

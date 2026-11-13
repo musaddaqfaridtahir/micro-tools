@@ -295,7 +295,7 @@ export default function ArabicPercentageCalculator() {
                   <span className="text-xs font-semibold text-neutral-500">
                     {primaryTitle}
                   </span>
-                  <div className="mt-0.5 text-3xl font-black text-violet-700">
+                  <div translate="no" className="notranslate mt-0.5 text-3xl font-black text-violet-700">
                     {primaryDisplay}
                   </div>
                 </div>
@@ -323,7 +323,7 @@ export default function ArabicPercentageCalculator() {
                   <span className="text-xs font-semibold text-neutral-500">
                     {secondaryTitle}
                   </span>
-                  <div className="mt-0.5 text-2xl font-extrabold text-emerald-700">
+                  <div translate="no" className="notranslate mt-0.5 text-2xl font-extrabold text-emerald-700">
                     {secondaryDisplay}
                   </div>
                 </div>
@@ -349,7 +349,7 @@ export default function ArabicPercentageCalculator() {
           </div>
 
           <div className="mt-6 rounded-xl border border-neutral-200 bg-white px-4 py-3 text-xs text-neutral-600">
-            الصيغة الحسابية: <span className="font-mono font-semibold text-neutral-900" dir="ltr">{formulaNote}</span>
+            الصيغة الحسابية: <span translate="no" className="notranslate font-mono font-semibold text-neutral-900" dir="ltr">{formulaNote}</span>
           </div>
         </div>
       </div>

@@ -78,7 +78,7 @@ const FAQ_ARABIC_DATA = [
 
 export default function HijriAgeCalculatorPage() {
   return (
-    <div className="py-8 sm:py-12" lang="ar" dir="rtl">
+    <div className="pt-3 pb-8 sm:py-10" lang="ar" dir="rtl">
       <SeoSchema
         tool={TOOL}
         faqs={FAQ_ARABIC_DATA}
@@ -89,13 +89,13 @@ export default function HijriAgeCalculatorPage() {
 
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         {/* Breadcrumb Navigation (RTL: ChevronLeft) */}
-        <nav aria-label="مسار التنقل" className="mb-6 flex items-center gap-2 text-xs text-neutral-500">
+        <nav aria-label="مسار التنقل" className="mb-3 sm:mb-6 flex items-center gap-2 text-xs text-neutral-500">
           <Link href="/" className="hover:text-neutral-900 transition">
             الرئيسية
           </Link>
           <ChevronLeft className="h-3 w-3" />
           <Link href="/ar" className="hover:text-neutral-900 transition">
-            الأدوات العربية (AR)
+            الأدوات العربية (<span translate="no" className="notranslate font-bold">AR</span>)
           </Link>
           <ChevronLeft className="h-3 w-3" />
           <span className="font-semibold text-neutral-900" aria-current="page">
@@ -104,27 +104,27 @@ export default function HijriAgeCalculatorPage() {
         </nav>
 
         {/* Page Header */}
-        <header className="mb-6 text-center">
-          <div className="inline-flex items-center gap-1.5 rounded-full border border-emerald-200 bg-emerald-50 px-3.5 py-1 text-xs font-semibold text-emerald-700 shadow-2xs mb-3">
+        <header className="mb-4 sm:mb-6 text-center">
+          <div className="inline-flex items-center gap-1.5 rounded-full border border-emerald-200 bg-emerald-50 px-3.5 py-1 text-xs font-semibold text-emerald-700 shadow-2xs mb-2 sm:mb-3">
             <Sparkles className="h-3.5 w-3.5 text-emerald-600" />
             <span>معتمدة على تقويم أم القرى الرسمي لعام 2026</span>
           </div>
 
-          <h1 className="text-3xl font-black tracking-tight text-neutral-900 sm:text-4xl md:text-5xl">
+          <h1 className="text-2xl font-black tracking-tight text-neutral-900 sm:text-4xl md:text-5xl">
             حاسبة العمر بالهجري والميلادي
           </h1>
-          <p className="mx-auto mt-3 max-w-2xl text-sm sm:text-base text-neutral-600">
+          <p className="mx-auto mt-1.5 sm:mt-3 max-w-2xl text-xs sm:text-base text-neutral-600 line-clamp-2 sm:line-clamp-none">
             احسب عمرك بالتفصيل بالسنوات والشهور والأيام، واكتشف تاريخ ميلادك الهجري المقابل، 
             والعد التنازلي المتبقي على موعد عيد ميلادك القادم.
           </p>
         </header>
 
-        <div className="mb-8">
+        <div className="mb-4 sm:mb-8">
           <AdSlot position="top" adSlot="banner-top-hijri-age-ar" />
         </div>
 
         {/* 2. THE CALCULATOR COMPONENT */}
-        <section aria-label="أداة حساب العمر التفاعلية" className="mb-10">
+        <section aria-label="أداة حساب العمر التفاعلية" className="mb-6 sm:mb-10">
           <Suspense fallback={<div className="h-96 rounded-3xl bg-neutral-100 animate-pulse" />}>
             <HijriAgeCalculator />
           </Suspense>

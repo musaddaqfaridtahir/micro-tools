@@ -206,7 +206,7 @@ export default function VatCalculator() {
               placeholder="Ex: 100,00"
               className="block w-full rounded-2xl border border-neutral-300 bg-neutral-50/50 py-3.5 pl-11 pr-12 text-lg font-bold text-neutral-900 placeholder:text-neutral-400 focus:border-blue-600 focus:bg-white focus:outline-none focus:ring-4 focus:ring-blue-500/10 transition"
             />
-            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-4 text-xs font-semibold text-neutral-400">
+            <div translate="no" className="notranslate pointer-events-none absolute inset-y-0 right-0 flex items-center pr-4 text-xs font-semibold text-neutral-400">
               EUR €
             </div>
           </div>
@@ -317,7 +317,7 @@ export default function VatCalculator() {
             <span className="text-xs font-semibold uppercase tracking-wider text-neutral-400">
               1. Montant HT (Hors Taxes)
             </span>
-            <div className="mt-2 text-2xl font-black text-white sm:text-3xl">
+            <div translate="no" className="notranslate mt-2 text-2xl font-black text-white sm:text-3xl">
               {formatEuro(montantHT)}
             </div>
             <div className="mt-4 flex items-center justify-between">
@@ -349,7 +349,7 @@ export default function VatCalculator() {
             <span className="text-xs font-semibold uppercase tracking-wider text-blue-400">
               2. Montant de la TVA ({currentRateValue} %)
             </span>
-            <div className="mt-2 text-2xl font-black text-blue-400 sm:text-3xl">
+            <div translate="no" className="notranslate mt-2 text-2xl font-black text-blue-400 sm:text-3xl">
               {formatEuro(montantTVA)}
             </div>
             <div className="mt-4 flex items-center justify-between">
@@ -381,7 +381,7 @@ export default function VatCalculator() {
             <span className="text-xs font-semibold uppercase tracking-wider text-emerald-400">
               3. Montant TTC (Total)
             </span>
-            <div className="mt-2 text-2xl font-black text-emerald-400 sm:text-3xl">
+            <div translate="no" className="notranslate mt-2 text-2xl font-black text-emerald-400 sm:text-3xl">
               {formatEuro(montantTTC)}
             </div>
             <div className="mt-4 flex items-center justify-between">
@@ -411,7 +411,7 @@ export default function VatCalculator() {
 
         {/* Calculation summary formula banner */}
         <div className="border-t border-neutral-800 bg-neutral-950 px-6 py-3 text-xs text-neutral-400 flex flex-col sm:flex-row items-center justify-between gap-2">
-          <div className="font-mono text-[11px]">
+          <div translate="no" className="notranslate font-mono text-[11px]">
             {mode === "ht_to_ttc" ? (
               <span>
                 Formule : TTC = {montantHT.toFixed(2)} € × (1 + {currentRateValue} / 100) = <strong className="text-white">{montantTTC.toFixed(2)} €</strong>

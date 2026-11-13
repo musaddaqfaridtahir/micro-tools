@@ -82,15 +82,26 @@ export default function LanguageHubView({
           <ChevronRight
             className={`h-3.5 w-3.5 text-neutral-400 ${isRtl ? "rotate-180" : ""}`}
           />
-          <span className="font-semibold text-neutral-900">
-            {hub.flag} {hub.nativeName}
+          <span className="font-semibold text-neutral-900 inline-flex items-center gap-1.5">
+            <span
+              translate="no"
+              className="notranslate rounded bg-blue-100 px-1.5 py-0.5 text-[10px] font-bold text-blue-700"
+            >
+              {hub.upperCode}
+            </span>
+            <span translate="no" className="notranslate">{hub.nativeName}</span>
           </span>
         </nav>
 
         {/* Hub Hero Card */}
         <header className="mb-10 rounded-3xl border border-neutral-200 bg-white p-6 shadow-xs sm:p-10">
           <div className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-3.5 py-1 text-xs font-bold text-blue-700">
-            <span>{hub.flag}</span>
+            <span
+              translate="no"
+              className="notranslate rounded bg-blue-200/80 px-1.5 py-0.5 text-[10px] font-black text-blue-900"
+            >
+              {hub.upperCode}
+            </span>
             <span>
               {tools.length} {hub.toolsCountSuffix}
             </span>
@@ -149,8 +160,17 @@ export default function LanguageHubView({
                         : "border-neutral-200 bg-neutral-50 text-neutral-700 hover:border-blue-300 hover:bg-blue-50"
                     }`}
                   >
-                    <span>{target.flag}</span>
-                    <span>{target.nativeName}</span>
+                    <span
+                      translate="no"
+                      className={`notranslate rounded px-1.5 py-0.5 text-[10px] font-bold ${
+                        isCurrent
+                          ? "bg-white/20 text-white"
+                          : "bg-neutral-200/80 text-neutral-800"
+                      }`}
+                    >
+                      {target.upperCode}
+                    </span>
+                    <span translate="no" className="notranslate">{target.nativeName}</span>
                   </Link>
                 );
               })}

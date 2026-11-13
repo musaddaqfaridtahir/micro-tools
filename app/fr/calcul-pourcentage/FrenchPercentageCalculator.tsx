@@ -297,7 +297,7 @@ export default function FrenchPercentageCalculator() {
                   <span className="text-xs font-semibold text-neutral-500">
                     {mainTitle}
                   </span>
-                  <div className="mt-0.5 text-3xl font-black tracking-tight text-violet-700">
+                  <div translate="no" className="notranslate mt-0.5 text-3xl font-black tracking-tight text-violet-700">
                     {mainDisplay}
                   </div>
                 </div>
@@ -325,7 +325,7 @@ export default function FrenchPercentageCalculator() {
                   <span className="text-xs font-semibold text-neutral-500">
                     {subTitle}
                   </span>
-                  <div className="mt-0.5 text-2xl font-extrabold text-emerald-700">
+                  <div translate="no" className="notranslate mt-0.5 text-2xl font-extrabold text-emerald-700">
                     {subDisplay}
                   </div>
                 </div>
@@ -351,7 +351,7 @@ export default function FrenchPercentageCalculator() {
           </div>
 
           <div className="mt-6 rounded-xl border border-neutral-200 bg-white px-4 py-3 text-xs text-neutral-600">
-            Détail : <span className="font-semibold text-neutral-900">{formulaInfo}</span>
+            Détail : <span translate="no" className="notranslate font-semibold text-neutral-900">{formulaInfo}</span>
           </div>
         </div>
       </div>

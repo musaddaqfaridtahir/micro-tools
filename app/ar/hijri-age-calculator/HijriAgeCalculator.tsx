@@ -260,15 +260,15 @@ export default function HijriAgeCalculator() {
                 <span>عمرك بالتقويم الميلادي</span>
               </div>
               <div className="flex items-baseline gap-2">
-                <span className="text-4xl sm:text-5xl font-black text-white">{gYears}</span>
+                <span translate="no" className="notranslate text-4xl sm:text-5xl font-black text-white">{gYears}</span>
                 <span className="text-base text-neutral-400 font-semibold">سنة</span>
               </div>
               <div className="mt-3 flex items-center gap-3 text-sm text-neutral-300">
                 <span className="rounded-lg bg-neutral-800 px-2.5 py-1">
-                  <strong>{gMonths}</strong> شهر
+                  <strong translate="no" className="notranslate">{gMonths}</strong> شهر
                 </span>
                 <span className="rounded-lg bg-neutral-800 px-2.5 py-1">
-                  <strong>{gDays}</strong> يوم
+                  <strong translate="no" className="notranslate">{gDays}</strong> يوم
                 </span>
               </div>
               <p className="mt-4 text-[11px] text-neutral-500">
@@ -283,15 +283,15 @@ export default function HijriAgeCalculator() {
                 <span>عمرك بالتقويم الهجري (تقويم أم القرى)</span>
               </div>
               <div className="flex items-baseline gap-2">
-                <span className="text-4xl sm:text-5xl font-black text-emerald-400">{hYears}</span>
+                <span translate="no" className="notranslate text-4xl sm:text-5xl font-black text-emerald-400">{hYears}</span>
                 <span className="text-base text-emerald-300 font-semibold">سنة هجرية</span>
               </div>
               <div className="mt-3 flex items-center gap-3 text-sm text-neutral-300">
                 <span className="rounded-lg bg-neutral-800 px-2.5 py-1">
-                  <strong className="text-emerald-400">{hMonths}</strong> شهر
+                  <strong translate="no" className="notranslate text-emerald-400">{hMonths}</strong> شهر
                 </span>
                 <span className="rounded-lg bg-neutral-800 px-2.5 py-1">
-                  <strong className="text-emerald-400">{hDays}</strong> يوم
+                  <strong translate="no" className="notranslate text-emerald-400">{hDays}</strong> يوم
                 </span>
               </div>
               <p className="mt-4 text-[11px] text-neutral-400">
@@ -343,7 +343,7 @@ export default function HijriAgeCalculator() {
             </span>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
               <div className="rounded-xl bg-neutral-800/60 p-3">
-                <div className="text-xl font-bold text-white">
+                <div translate="no" className="notranslate text-xl font-bold text-white">
                   {totalDays.toLocaleString("ar-SA")}
                 </div>
                 <div className="text-[11px] text-neutral-400 mt-0.5 flex items-center justify-center gap-1">
@@ -353,7 +353,7 @@ export default function HijriAgeCalculator() {
               </div>
 
               <div className="rounded-xl bg-neutral-800/60 p-3">
-                <div className="text-xl font-bold text-white">
+                <div translate="no" className="notranslate text-xl font-bold text-white">
                   {totalWeeks.toLocaleString("ar-SA")}
                 </div>
                 <div className="text-[11px] text-neutral-400 mt-0.5 flex items-center justify-center gap-1">
@@ -363,7 +363,7 @@ export default function HijriAgeCalculator() {
               </div>
 
               <div className="rounded-xl bg-neutral-800/60 p-3">
-                <div className="text-xl font-bold text-white">
+                <div translate="no" className="notranslate text-xl font-bold text-white">
                   {totalMonths.toLocaleString("ar-SA")}
                 </div>
                 <div className="text-[11px] text-neutral-400 mt-0.5 flex items-center justify-center gap-1">
@@ -373,7 +373,7 @@ export default function HijriAgeCalculator() {
               </div>
 
               <div className="rounded-xl bg-neutral-800/60 p-3">
-                <div className="text-xl font-bold text-white">
+                <div translate="no" className="notranslate text-xl font-bold text-white">
                   {totalHours.toLocaleString("ar-SA")}
                 </div>
                 <div className="text-[11px] text-neutral-400 mt-0.5 flex items-center justify-center gap-1">

@@ -166,7 +166,7 @@ export default function MileageCalculator() {
               placeholder="Ex: 8500"
               className="block w-full rounded-2xl border border-neutral-300 bg-neutral-50/50 py-3.5 pl-4 pr-14 text-lg font-bold text-neutral-900 focus:border-teal-600 focus:bg-white focus:outline-none focus:ring-4 focus:ring-teal-500/10 transition"
             />
-            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-4 text-xs font-semibold text-neutral-400">
+            <div translate="no" className="notranslate pointer-events-none absolute inset-y-0 right-0 flex items-center pr-4 text-xs font-semibold text-neutral-400">
               km / an
             </div>
           </div>
@@ -249,11 +249,11 @@ export default function MileageCalculator() {
             <span className="text-xs font-semibold text-teal-300">
               Total Frais Kilométriques Déductibles
             </span>
-            <div className="mt-2 text-3xl font-black text-emerald-400">
+            <div translate="no" className="notranslate mt-2 text-3xl font-black text-emerald-400">
               {formatEuro(totalDeductible)}
             </div>
             <div className="mt-1 text-xs text-neutral-400">
-              Formule : <span className="font-mono">{formulaStr}</span>
+              Formule : <span translate="no" className="notranslate font-mono">{formulaStr}</span>
             </div>
           </div>
 
@@ -261,11 +261,11 @@ export default function MileageCalculator() {
             <span className="text-xs font-semibold text-neutral-400">
               Indemnité au kilomètre
             </span>
-            <div className="mt-2 text-2xl sm:text-3xl font-black text-white">
+            <div translate="no" className="notranslate mt-2 text-2xl sm:text-3xl font-black text-white">
               {costPerKm.toFixed(3).replace(".", ",")} €/km
             </div>
             <div className="mt-1 text-xs text-neutral-400">
-              {row.label} sur {km.toLocaleString("fr-FR")} km/an
+              {row.label} sur <span translate="no" className="notranslate">{km.toLocaleString("fr-FR")} km/an</span>
             </div>
           </div>
 
@@ -273,7 +273,7 @@ export default function MileageCalculator() {
             <span className="text-xs font-semibold text-neutral-400">
               Majoration Véhicule Électrique (+20%)
             </span>
-            <div className="mt-2 text-2xl sm:text-3xl font-black text-blue-400">
+            <div translate="no" className="notranslate mt-2 text-2xl sm:text-3xl font-black text-blue-400">
               {isElectric ? `+ ${formatEuro(electricBonus)}` : "0,00 €"}
             </div>
             <div className="mt-1 text-xs text-neutral-400">

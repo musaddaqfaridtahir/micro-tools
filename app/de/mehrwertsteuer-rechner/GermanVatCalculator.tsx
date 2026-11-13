@@ -308,7 +308,7 @@ export default function GermanVatCalculator() {
                   <span className="text-xs font-semibold text-neutral-500">
                     Nettobetrag (ohne MwSt.)
                   </span>
-                  <div className="mt-0.5 text-2xl font-extrabold tracking-tight text-neutral-900">
+                  <div translate="no" className="notranslate mt-0.5 text-2xl font-extrabold tracking-tight text-neutral-900">
                     {formatEuro(nettobetrag)}
                   </div>
                 </div>
@@ -337,7 +337,7 @@ export default function GermanVatCalculator() {
                   <span className="text-xs font-semibold text-neutral-500">
                     Mehrwertsteuer ({currentRate.toString().replace(".", ",")} %)
                   </span>
-                  <div className="mt-0.5 text-2xl font-extrabold tracking-tight text-blue-600">
+                  <div translate="no" className="notranslate mt-0.5 text-2xl font-extrabold tracking-tight text-blue-600">
                     {formatEuro(mwstBetrag)}
                   </div>
                 </div>
@@ -372,7 +372,7 @@ export default function GermanVatCalculator() {
                   <span className="text-xs font-semibold text-neutral-500">
                     Bruttobetrag (inkl. MwSt.)
                   </span>
-                  <div className="mt-0.5 text-2xl font-extrabold tracking-tight text-neutral-900">
+                  <div translate="no" className="notranslate mt-0.5 text-2xl font-extrabold tracking-tight text-neutral-900">
                     {formatEuro(bruttobetrag)}
                   </div>
                 </div>

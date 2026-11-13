@@ -302,7 +302,7 @@ export default function SaudiVatCalculator() {
                 {copiedKey === "net" ? <Check className="h-3.5 w-3.5 text-emerald-400" /> : <Copy className="h-3.5 w-3.5" />}
               </button>
             </div>
-            <div className="mt-2 text-2xl sm:text-3xl font-black text-white">
+            <div translate="no" className="notranslate mt-2 text-2xl sm:text-3xl font-black text-white">
               {fmtNumber(netAmount)}
             </div>
           </div>
@@ -321,7 +321,7 @@ export default function SaudiVatCalculator() {
                 {copiedKey === "vat" ? <Check className="h-3.5 w-3.5 text-emerald-400" /> : <Copy className="h-3.5 w-3.5" />}
               </button>
             </div>
-            <div className="mt-2 text-2xl sm:text-3xl font-black text-blue-400">
+            <div translate="no" className="notranslate mt-2 text-2xl sm:text-3xl font-black text-blue-400">
               {fmtNumber(vatAmount)}
             </div>
           </div>
@@ -340,7 +340,7 @@ export default function SaudiVatCalculator() {
                 {copiedKey === "gross" ? <Check className="h-3.5 w-3.5 text-emerald-400" /> : <Copy className="h-3.5 w-3.5" />}
               </button>
             </div>
-            <div className="mt-2 text-2xl sm:text-3xl font-black text-emerald-400">
+            <div translate="no" className="notranslate mt-2 text-2xl sm:text-3xl font-black text-emerald-400">
               {fmtNumber(grossAmount)}
             </div>
           </div>

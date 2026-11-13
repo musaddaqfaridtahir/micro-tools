@@ -78,7 +78,7 @@ const FAQ_DATA = [
 
 export default function VatCalculatorPage() {
   return (
-    <div className="py-8 sm:py-12" lang="fr">
+    <div className="pt-3 pb-8 sm:py-10" lang="fr">
       <SeoSchema
         tool={TOOL}
         faqs={FAQ_DATA}
@@ -89,13 +89,13 @@ export default function VatCalculatorPage() {
 
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         {/* Breadcrumb Navigation */}
-        <nav aria-label="Fil d'Ariane" className="mb-6 flex items-center gap-2 text-xs text-neutral-500">
+        <nav aria-label="Fil d'Ariane" className="mb-3 sm:mb-6 flex items-center gap-2 text-xs text-neutral-500">
           <Link href="/" className="hover:text-neutral-900 transition">
             Accueil
           </Link>
           <ChevronRight className="h-3 w-3" />
           <Link href="/fr" className="hover:text-neutral-900 transition">
-            Outils Français (FR)
+            Outils Français (<span translate="no" className="notranslate font-bold">FR</span>)
           </Link>
           <ChevronRight className="h-3 w-3" />
           <span className="font-semibold text-neutral-900" aria-current="page">
@@ -104,27 +104,27 @@ export default function VatCalculatorPage() {
         </nav>
 
         {/* Page Header */}
-        <header className="mb-6 text-center">
-          <div className="inline-flex items-center gap-1.5 rounded-full border border-blue-200 bg-blue-50 px-3.5 py-1 text-xs font-semibold text-blue-700 shadow-2xs mb-3">
+        <header className="mb-4 sm:mb-6 text-center">
+          <div className="inline-flex items-center gap-1.5 rounded-full border border-blue-200 bg-blue-50 px-3.5 py-1 text-xs font-semibold text-blue-700 shadow-2xs mb-2 sm:mb-3">
             <Zap className="h-3.5 w-3.5" />
             <span>Mis à jour pour la fiscalité française 2026</span>
           </div>
 
-          <h1 className="text-3xl font-black tracking-tight text-neutral-900 sm:text-4xl md:text-5xl">
+          <h1 className="text-2xl font-black tracking-tight text-neutral-900 sm:text-4xl md:text-5xl">
             Calculateur de TVA en Ligne
           </h1>
-          <p className="mx-auto mt-3 max-w-2xl text-sm sm:text-base text-neutral-600">
+          <p className="mx-auto mt-1.5 sm:mt-3 max-w-2xl text-xs sm:text-base text-neutral-600 line-clamp-2 sm:line-clamp-none">
             Convertissez facilement un montant <strong>Hors Taxes (HT)</strong> en{" "}
             <strong>Toutes Taxes Comprises (TTC)</strong> et inversement avec les taux officiels de 20 %, 10 %, 5,5 % et 2,1 %.
           </p>
         </header>
 
-        <div className="mb-8">
+        <div className="mb-4 sm:mb-8">
           <AdSlot position="top" adSlot="banner-top-calculateur-tva" />
         </div>
 
         {/* 2. THE VAT CALCULATOR (Client Component) */}
-        <section aria-label="Outil de calcul de TVA interactif" className="mb-10">
+        <section aria-label="Outil de calcul de TVA interactif" className="mb-6 sm:mb-10">
           <VatCalculator />
         </section>
 

@@ -49,7 +49,7 @@ export default function Navbar() {
             <Wrench className="h-5 w-5" />
           </div>
           <div className="flex flex-col">
-            <span className="text-lg font-bold tracking-tight text-neutral-900">
+            <span translate="no" className="notranslate text-lg font-bold tracking-tight text-neutral-900">
               Micro<span className="text-blue-600">Tools</span>
             </span>
             <span className="text-[10px] font-medium uppercase tracking-wider text-neutral-500">
@@ -121,7 +121,10 @@ export default function Navbar() {
                             {tool.category}
                           </div>
                         </div>
-                        <span className="shrink-0 rounded bg-neutral-100 px-1.5 py-0.5 text-[10px] font-bold text-neutral-600">
+                        <span
+                          translate="no"
+                          className="notranslate shrink-0 rounded bg-neutral-100 px-1.5 py-0.5 text-[10px] font-bold text-neutral-600"
+                        >
                           {hub.upperCode}
                         </span>
                       </Link>
@@ -162,7 +165,8 @@ export default function Navbar() {
                   key={code}
                   href={hub.slug}
                   title={hub.nativeName}
-                  className={`rounded-lg px-2 py-1 text-[11px] font-bold transition ${
+                  translate="no"
+                  className={`notranslate rounded-lg px-2 py-1 text-[11px] font-bold transition ${
                     isActive
                       ? LANG_SWITCHER_ACTIVE[code]
                       : "text-neutral-700 hover:bg-white hover:text-blue-700"
@@ -207,13 +211,13 @@ export default function Navbar() {
                     key={code}
                     href={hub.slug}
                     onClick={() => setMobileMenuOpen(false)}
-                    className={`flex items-center justify-center gap-1 rounded-lg py-2 text-xs font-bold border ${
+                    translate="no"
+                    className={`notranslate flex items-center justify-center rounded-lg py-2 text-xs font-bold border ${
                       activeLang === code
                         ? "border-blue-600 bg-blue-50 text-blue-700"
                         : "border-neutral-200 bg-neutral-50 text-neutral-700"
                     }`}
                   >
-                    <span>{hub.flag}</span>
                     <span>{hub.upperCode}</span>
                   </Link>
                 );
@@ -240,7 +244,10 @@ export default function Navbar() {
                   className="flex items-center justify-between gap-2 rounded-lg border border-neutral-100 bg-neutral-50/70 px-3 py-2 text-sm font-semibold text-neutral-800 hover:border-blue-200 hover:bg-blue-50/60"
                 >
                   <span className="truncate">{tool.shortTitle}</span>
-                  <span className="shrink-0 rounded bg-neutral-200/80 px-2 py-0.5 text-[10px] font-bold text-neutral-700">
+                  <span
+                    translate="no"
+                    className="notranslate shrink-0 rounded bg-neutral-200/80 px-2 py-0.5 text-[10px] font-bold text-neutral-700"
+                  >
                     {hub.upperCode}
                   </span>
                 </Link>

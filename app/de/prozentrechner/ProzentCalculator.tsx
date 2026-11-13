@@ -316,7 +316,7 @@ export default function ProzentCalculator() {
 
           <div className="flex items-start gap-2.5 rounded-2xl border border-neutral-200/80 bg-neutral-50 p-3.5 text-xs text-neutral-600">
             <Info className="mt-0.5 h-4 w-4 shrink-0 text-indigo-500" />
-            <p className="font-mono">{formulaLine}</p>
+            <p translate="no" className="notranslate font-mono">{formulaLine}</p>
           </div>
         </div>
 
@@ -334,7 +334,7 @@ export default function ProzentCalculator() {
                   <span className="text-xs font-semibold text-neutral-500">
                     {primaryLabel}
                   </span>
-                  <div className="mt-0.5 text-3xl font-black tracking-tight text-indigo-700">
+                  <div translate="no" className="notranslate mt-0.5 text-3xl font-black tracking-tight text-indigo-700">
                     {primaryValue}
                   </div>
                 </div>
@@ -361,7 +361,7 @@ export default function ProzentCalculator() {
                 <span className="text-xs font-semibold text-neutral-500">
                   {secondaryLabel}
                 </span>
-                <div className="mt-0.5 text-xl font-extrabold text-neutral-900">
+                <div translate="no" className="notranslate mt-0.5 text-xl font-extrabold text-neutral-900">
                   {secondaryValue}
                 </div>
               </div>

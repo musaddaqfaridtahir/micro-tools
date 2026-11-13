@@ -374,7 +374,7 @@ export default function EndOfServiceCalculator() {
                 <span className="text-xs font-semibold text-neutral-500">
                   مكافأة نهاية الخدمة المستحقة
                 </span>
-                <div className="mt-0.5 text-3xl font-black text-amber-700">
+                <div translate="no" className="notranslate mt-0.5 text-3xl font-black text-amber-700">
                   {fmtSar(finalGratuity)}
                 </div>
                 <span className="mt-1 inline-block text-[11px] font-semibold text-neutral-600">
@@ -406,7 +406,7 @@ export default function EndOfServiceCalculator() {
                 <span className="font-semibold text-neutral-600">
                   أول 5 سنوات (نصف راتب × {first5YearsDuration.toFixed(2)} سنة)
                 </span>
-                <span className="font-bold text-neutral-900">
+                <span translate="no" className="notranslate font-bold text-neutral-900">
                   {fmtSar(first5Amount)}
                 </span>
               </div>
@@ -414,7 +414,7 @@ export default function EndOfServiceCalculator() {
                 <span className="font-semibold text-neutral-600">
                   ما زاد عن 5 سنوات (راتب كامل × {after5YearsDuration.toFixed(2)} سنة)
                 </span>
-                <span className="font-bold text-neutral-900">
+                <span translate="no" className="notranslate font-bold text-neutral-900">
                   {fmtSar(after5Amount)}
                 </span>
               </div>
@@ -422,7 +422,7 @@ export default function EndOfServiceCalculator() {
                 <span className="font-semibold text-neutral-600">
                   إجمالي المكافأة الكاملة (100% وفق المادة 84)
                 </span>
-                <span className="font-bold text-emerald-700">
+                <span translate="no" className="notranslate font-bold text-emerald-700">
                   {fmtSar(baseGratuity)}
                 </span>
               </div>

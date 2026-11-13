@@ -71,7 +71,7 @@ const FAQ_IVA_ES_DATA = [
 
 export default function CalculadoraIvaEsPage() {
   return (
-    <div className="py-8 sm:py-12" lang="es">
+    <div className="pt-3 pb-8 sm:py-10" lang="es">
       <SeoSchema
         tool={TOOL}
         faqs={FAQ_IVA_ES_DATA}
@@ -81,13 +81,13 @@ export default function CalculadoraIvaEsPage() {
       />
 
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-        <nav aria-label="Miga de pan" className="mb-6 flex items-center gap-2 text-xs text-neutral-500">
+        <nav aria-label="Miga de pan" className="mb-3 sm:mb-6 flex items-center gap-2 text-xs text-neutral-500">
           <Link href="/" className="hover:text-neutral-900 transition">
             Inicio
           </Link>
           <ChevronRight className="h-3 w-3" />
           <Link href="/es" className="hover:text-neutral-900 transition">
-            Calculadoras en Español (ES)
+            Calculadoras en Español (<span translate="no" className="notranslate font-bold">ES</span>)
           </Link>
           <ChevronRight className="h-3 w-3" />
           <span className="font-semibold text-neutral-900" aria-current="page">
@@ -95,26 +95,26 @@ export default function CalculadoraIvaEsPage() {
           </span>
         </nav>
 
-        <header className="mb-6 text-center">
-          <div className="mb-3 inline-flex items-center gap-1.5 rounded-full border border-blue-200 bg-blue-50 px-3.5 py-1 text-xs font-semibold text-blue-700 shadow-2xs">
+        <header className="mb-4 sm:mb-6 text-center">
+          <div className="mb-2 sm:mb-3 inline-flex items-center gap-1.5 rounded-full border border-blue-200 bg-blue-50 px-3.5 py-1 text-xs font-semibold text-blue-700 shadow-2xs">
             <Receipt className="h-3.5 w-3.5" />
             <span>Actualizado para normativa tributaria 2026</span>
           </div>
 
-          <h1 className="text-3xl font-black tracking-tight text-neutral-900 sm:text-4xl md:text-5xl">
+          <h1 className="text-2xl font-black tracking-tight text-neutral-900 sm:text-4xl md:text-5xl">
             Calculadora de IVA Online
           </h1>
-          <p className="mx-auto mt-3 max-w-2xl text-sm sm:text-base text-neutral-600">
+          <p className="mx-auto mt-1.5 sm:mt-3 max-w-2xl text-xs sm:text-base text-neutral-600 line-clamp-2 sm:line-clamp-none">
             Calcule al instante la <strong>Base Imponible</strong>, la <strong>Cuota de IVA</strong> y el{" "}
             <strong>Total con IVA</strong> para facturas en España (21 %, 10 %, 4 %) o Latinoamérica.
           </p>
         </header>
 
-        <div className="mb-8">
+        <div className="mb-4 sm:mb-8">
           <AdSlot position="top" adSlot="banner-top-calculadora-iva-es" />
         </div>
 
-        <section aria-label="Calculadora interactiva de IVA" className="mb-10">
+        <section aria-label="Calculadora interactiva de IVA" className="mb-6 sm:mb-10">
           <SpanishVatCalculator />
         </section>
 
