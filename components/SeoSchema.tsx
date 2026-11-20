@@ -15,6 +15,7 @@ const HOME_LABELS: Record<ToolDefinition["language"], string> = {
   de: "Startseite",
   es: "Inicio",
   ar: "الرئيسية",
+  pk: "Home",
 };
 
 export default function SeoSchema({

@@ -41,6 +41,12 @@ const SECTION_COPY: Record<
       "استكشف المزيد من الحاسبات المجانية السريعة في منصتنا دون تسجيل أو حفظ للبيانات.",
     hubLinkText: "عرض جميع الأدوات العربية",
   },
+  pk: {
+    heading: "Related Pakistan Utility Tools & Calculators",
+    subtitle:
+      "Explore more free online utility calculators designed for Pakistani taxpayers, consumers, and vehicle owners.",
+    hubLinkText: "View all Pakistan Tools (PK)",
+  },
 };
 
 export default function RelatedTools({

@@ -25,7 +25,8 @@ export default function HomeToolsDirectory() {
         langParam === "fr" ||
         langParam === "de" ||
         langParam === "es" ||
-        langParam === "ar"
+        langParam === "ar" ||
+        langParam === "pk"
       ) {
         setSelectedLang(langParam);
       }
@@ -71,14 +72,14 @@ export default function HomeToolsDirectory() {
               Nos {TOOLS_REGISTRY.length} Calculateurs Spécialisés
             </h2>
             <p className="mt-1 text-sm text-neutral-500">
-              Tous les outils sont 100 % gratuits, sans inscription et exécutés localement en français, allemand, espagnol et arabe.
+              Tous les outils sont 100 % gratuits, sans inscription et exécutés localement en français, allemand, espagnol, arabe et pour le Pakistan.
             </p>
           </div>
 
           <div className="flex items-center gap-2 self-start rounded-full border border-emerald-200 bg-emerald-50 px-3.5 py-1.5 text-xs font-bold text-emerald-700 md:self-auto">
             <span className="inline-block h-2.5 w-2.5 animate-pulse rounded-full bg-emerald-500" />
             <span>
-              {TOOLS_REGISTRY.length} Outils Gratuits &bull; 4 Langues
+              {TOOLS_REGISTRY.length} Outils Gratuits &bull; {LANGUAGE_ORDER.length} Régions
             </span>
           </div>
         </div>

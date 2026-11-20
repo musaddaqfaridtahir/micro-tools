@@ -49,6 +49,13 @@ const HUB_UI_COPY: Record<
     speedBadge: "مجاني وسريع دون تسجيل",
     noSignupBadge: "محدّث لعام 2026",
   },
+  pk: {
+    home: "Home",
+    otherLanguages: "Other Regions & Languages:",
+    privacyBadge: "100% Client-Side Privacy",
+    speedBadge: "Instant Calculation • No Login",
+    noSignupBadge: "Updated for Pakistan 2026",
+  },
 };
 
 export default function LanguageHubView({

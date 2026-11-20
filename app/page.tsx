@@ -30,7 +30,7 @@ export default function HomePage() {
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50/80 px-4 py-1.5 text-xs font-semibold text-blue-700 shadow-xs">
             <Sparkles className="h-4 w-4" />
             <span>
-              Suite Multilingue de {TOOLS_REGISTRY.length} Micro-Outils Gratuits (<span translate="no" className="notranslate">FR • DE • ES • AR</span>)
+              Suite Multilingue de {TOOLS_REGISTRY.length} Micro-Outils Gratuits (<span translate="no" className="notranslate">FR • DE • ES • AR • PK</span>)
             </span>
           </div>
 
@@ -76,7 +76,7 @@ export default function HomePage() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
             {LANGUAGE_ORDER.map((code) => {
               const hub = LANGUAGE_HUBS[code];
               const count = TOOLS_REGISTRY.filter(

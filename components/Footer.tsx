@@ -36,7 +36,7 @@ export default function Footer() {
               </span>
             </Link>
             <p className="max-w-sm text-xs sm:text-sm leading-relaxed text-neutral-400">
-              Free, fast, and privacy-first multi-language utility tools and online calculators covering French, German, Spanish, and Arabic.
+              Free, fast, and privacy-first multi-language utility tools and online calculators covering French, German, Spanish, Arabic, and Pakistani regions.
             </p>
             <div className="flex flex-wrap items-center gap-2 pt-1">
               {LANGUAGE_ORDER.map((code) => {

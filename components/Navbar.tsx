@@ -26,6 +26,7 @@ const LANG_SWITCHER_ACTIVE: Record<string, string> = {
   de: "bg-emerald-600 text-white",
   es: "bg-amber-600 text-white",
   ar: "bg-teal-700 text-white",
+  pk: "bg-emerald-700 text-white",
 };
 
 export default function Navbar() {
@@ -53,7 +54,7 @@ export default function Navbar() {
               Micro<span className="text-blue-600">Tools</span>
             </span>
             <span className="text-[10px] font-medium uppercase tracking-wider text-neutral-500 whitespace-nowrap">
-              {TOOLS_REGISTRY.length} Outils Gratuits &bull; 4 Langues
+              {TOOLS_REGISTRY.length} Outils Gratuits &bull; {LANGUAGE_ORDER.length} Régions
             </span>
           </div>
         </Link>
@@ -203,7 +204,7 @@ export default function Navbar() {
         <div className="max-h-[82vh] overflow-y-auto border-b border-neutral-200 bg-white px-4 py-4 md:hidden">
           <div className="flex flex-col gap-2">
             {/* Mobile Language Hubs */}
-            <div className="grid grid-cols-4 gap-1.5 pb-2 border-b border-neutral-100">
+            <div className="grid grid-cols-5 gap-1 pb-2 border-b border-neutral-100">
               {LANGUAGE_ORDER.map((code) => {
                 const hub = LANGUAGE_HUBS[code];
                 return (

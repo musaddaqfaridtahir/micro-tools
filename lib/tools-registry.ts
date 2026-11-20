@@ -1,4 +1,4 @@
-export type LanguageCode = "fr" | "de" | "es" | "ar";
+export type LanguageCode = "fr" | "de" | "es" | "ar" | "pk";
 
 export type ToolIconName =
   | "calculator"
@@ -12,7 +12,8 @@ export type ToolIconName =
   | "moon"
   | "landmark"
   | "percent"
-  | "home";
+  | "home"
+  | "sun";
 
 export type ToolAccent = "blue" | "emerald" | "amber" | "indigo" | "teal" | "violet";
 
@@ -120,9 +121,25 @@ export const LANGUAGE_HUBS: Record<LanguageCode, LanguageHubMeta> = {
     filterLabel: "العربية (AR)",
     toolsCountSuffix: "أدوات مجانية متاحة",
   },
+  pk: {
+    code: "pk",
+    upperCode: "PK",
+    slug: "/pk",
+    nativeName: "Pakistan",
+    locale: "en_PK",
+    dir: "ltr",
+    hubHeadline: "Free Online Calculators & Utility Tools for Pakistan",
+    hubSubheadline:
+      "Suite of 4 essential Pakistani utility calculators: WAPDA & K-Electric electricity bill estimator with 2026 slabs, FBR income tax calculator, solar system size & ROI calculator, and Punjab/Sindh vehicle token tax calculator.",
+    seoTitle: "Pakistan Online Calculators 2026 – Electricity Bill, FBR Income Tax, Solar & Token Tax",
+    seoDescription:
+      "Free online calculators for Pakistan: Calculate WAPDA/K-Electric electricity bills, FBR salary income tax, solar system size & savings, and vehicle token tax for Punjab & Sindh.",
+    filterLabel: "Pakistan (PK)",
+    toolsCountSuffix: "tools available",
+  },
 };
 
-export const LANGUAGE_ORDER: LanguageCode[] = ["fr", "de", "es", "ar"];
+export const LANGUAGE_ORDER: LanguageCode[] = ["fr", "de", "es", "ar", "pk"];
 
 export const TOOLS_REGISTRY: ToolDefinition[] = [
   {
@@ -584,6 +601,123 @@ export const TOOLS_REGISTRY: ToolDefinition[] = [
       "إجمالي الأيام والأسابيع والعد التنازلي",
     ],
     relatedIds: ["end-of-service-calculator", "vat-calculator-saudi", "percentage-calculator"],
+  },
+  {
+    id: "electricity-bill-estimator",
+    slug: "/pk/electricity-bill-estimator",
+    language: "pk",
+    locale: "en_PK",
+    dir: "ltr",
+    title: "WAPDA & K-Electric Electricity Bill Estimator (Pakistan 2026)",
+    shortTitle: "Electricity Bill Estimator",
+    shortDescription:
+      "Estimate your monthly electricity bill for LESCO, GEPCO, FESCO, MEPCO, IESCO, and K-Electric based on units consumed, NEPRA protected/unprotected slabs, FPA, and taxes.",
+    nativeCtaText: "Open Calculator →",
+    nativeBadgeText: "Active Tool",
+    category: "Utilities & Energy",
+    keywords: [
+      "wapda bill calculator",
+      "kelectric bill estimator",
+      "lesco bill calculator",
+      "mepco electricity bill",
+      "nepra tariff slabs 2026",
+      "bijli ka bill check",
+    ],
+    icon: "zap",
+    accent: "emerald",
+    highlights: [
+      "LESCO, GEPCO, FESCO, MEPCO, IESCO & KE",
+      "Protected vs Unprotected 2026 Slabs",
+      "FPA, GST (18%) & Surcharges Breakdown",
+    ],
+    relatedIds: ["solar-system-calculator", "fbr-income-tax-calculator", "vehicle-token-tax-calculator"],
+  },
+  {
+    id: "fbr-income-tax-calculator",
+    slug: "/pk/fbr-income-tax-calculator",
+    language: "pk",
+    locale: "en_PK",
+    dir: "ltr",
+    title: "FBR Income Tax Calculator Pakistan (Tax Year 2025-2026)",
+    shortTitle: "FBR Income Tax Calculator",
+    shortDescription:
+      "Calculate monthly & annual salary tax deduction and net take-home pay for salaried individuals and business taxpayers according to latest FBR Finance Act slabs.",
+    nativeCtaText: "Open Calculator →",
+    nativeBadgeText: "Active Tool",
+    category: "Tax & Finance",
+    keywords: [
+      "fbr tax calculator",
+      "salary tax calculator pakistan 2026",
+      "income tax slabs salaried",
+      "fbr tax deduction monthly",
+      "take home salary calculator",
+    ],
+    icon: "calculator",
+    accent: "blue",
+    highlights: [
+      "Salaried & Business AOP Slabs 2025-2026",
+      "Monthly & Annual Take-Home Breakdown",
+      "Effective Tax Rate % & Visual Ratio",
+    ],
+    relatedIds: ["electricity-bill-estimator", "vehicle-token-tax-calculator", "solar-system-calculator"],
+  },
+  {
+    id: "solar-system-calculator",
+    slug: "/pk/solar-system-calculator",
+    language: "pk",
+    locale: "en_PK",
+    dir: "ltr",
+    title: "Solar System Size, Load & ROI Calculator (Pakistan)",
+    shortTitle: "Solar System & ROI Calculator",
+    shortDescription:
+      "Find the ideal solar panel capacity (3kW, 6kW, 10kW, 15kW), number of 585W panels, total system cost in PKR, monthly bill savings, and payback period.",
+    nativeCtaText: "Open Calculator →",
+    nativeBadgeText: "Active Tool",
+    category: "Solar & Energy",
+    keywords: [
+      "solar system calculator pakistan",
+      "solar panel capacity by bill",
+      "585w solar panels calculator",
+      "solar payback period pakistan",
+      "solar load calculator inverters",
+    ],
+    icon: "sun",
+    accent: "amber",
+    highlights: [
+      "Calculate by Monthly Bill or Home Load",
+      "585W Panels, Roof Area & Cost in PKR",
+      "ROI & Payback Period in Years",
+    ],
+    relatedIds: ["electricity-bill-estimator", "fbr-income-tax-calculator", "vehicle-token-tax-calculator"],
+  },
+  {
+    id: "vehicle-token-tax-calculator",
+    slug: "/pk/vehicle-token-tax-calculator",
+    language: "pk",
+    locale: "en_PK",
+    dir: "ltr",
+    title: "Punjab & Sindh Vehicle Token Tax Calculator (2026)",
+    shortTitle: "Vehicle Token Tax Calculator",
+    shortDescription:
+      "Calculate annual motor vehicle token tax and withholding tax (Section 234) for cars and SUVs in Punjab and Sindh with Filer vs. Non-Filer rate comparisons.",
+    nativeCtaText: "Open Calculator →",
+    nativeBadgeText: "Active Tool",
+    category: "Automobile & Excise",
+    keywords: [
+      "vehicle token tax calculator",
+      "punjab token tax online",
+      "sindh car token tax",
+      "filer vs non filer token tax",
+      "car tax 1000cc 1300cc 1500cc",
+    ],
+    icon: "car",
+    accent: "indigo",
+    highlights: [
+      "Punjab & Sindh Excise Tax Schedules",
+      "Active Filer vs Non-Filer Comparison",
+      "Lifetime Token Option for ≤ 1000cc",
+    ],
+    relatedIds: ["fbr-income-tax-calculator", "electricity-bill-estimator", "solar-system-calculator"],
   },
 ];
 
